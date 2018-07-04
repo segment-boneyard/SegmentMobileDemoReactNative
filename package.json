@@ -25,8 +25,14 @@
   },
   "dependencies": {
     "apisauce": "^0.14.2",
+    "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",
+    "apollo-link": "^1.2.2",
+    "apollo-link-context": "^1.0.8",
+    "apollo-link-error": "^1.1.0",
+    "apollo-link-http": "^1.5.4",
     "format-json": "^1.0.3",
+    "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "identity-obj-proxy": "^3.0.0",
     "lodash": "^4.17.4",
@@ -39,7 +45,7 @@
     "react-native-animatable": "^1.3.0",
     "react-native-config": "^0.10.0",
     "react-native-device-info": "0.11.0",
-    "react-native-i18n": "1.0.0",
+    "react-native-i18n": "2.0.12",
     "react-native-vector-icons": "4.3.0",
     "react-navigation": "1.0.0-beta.11",
     "react-navigation-redux-helpers": "^1.0.4",
@@ -48,7 +54,8 @@
     "redux-persist": "^5.4.0",
     "redux-saga": "^0.16.0",
     "reduxsauce": "0.7.0",
-    "seamless-immutable": "^7.1.3"
+    "seamless-immutable": "^7.1.3",
+    "subscriptions-transport-ws": "^0.9.12"
   },
   "devDependencies": {
     "@storybook/addon-storyshots": "^3.4.0",
