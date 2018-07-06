@@ -1,0 +1,5 @@
+fragment image on Images{
+  id
+  transformedSrc
+  originalSrc
+}
