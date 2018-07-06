@@ -2,7 +2,8 @@ import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import { gql } from 'graphql-tag';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 import { fetch } from 'whatwg-fetch';
 import * as Fragments from './fragments';
 
@@ -24,14 +25,17 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-export function fetchProducts() {
+export const fetchProducts = () => {
   return client.query({
     query: gql`
       query shop {
-        name
-        description
-      }`
+        shop {
+          name
+          description
+        }
+      }
+    `
   });
-}
+};
 
 export default client;

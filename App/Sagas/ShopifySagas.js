@@ -1,6 +1,11 @@
 import { call, put } from 'redux-saga/effects'
-import { client, fetchProducts } from '../Apollo/client';
+import { fetchProducts } from '../Apollo/client';
 
 export function * getProducts(action) {
-  yield fetchProducts();
+  try {
+    const results = yield call(fetchProducts);
+    yield put(results.data);
+  } catch (e) {
+    console.log('Error');
+  }
 }

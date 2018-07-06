@@ -1,7 +1,8 @@
-import { fetchProducts } from '../../App/Sagas/ShopifySagas';
+import { getProducts } from '../../App/Sagas/ShopifySagas';
 
 const stepper = (fn) => (mock) => fn.next(mock).value;
 
 test('first calls API', () => {
-  const step = stepper(fetchProducts);
+  const retVal = getProducts().next().value;
+  console.log(retVal);
 });
