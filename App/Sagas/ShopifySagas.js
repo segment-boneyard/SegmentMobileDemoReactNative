@@ -3,9 +3,9 @@ import { fetchProducts } from '../Apollo/client';
 
 export function * getProducts(action) {
   try {
-    const results = yield call(fetchProducts);
-    yield put(results.data);
+    const result = yield call(fetchProducts);
+    console.log(result);
   } catch (e) {
-    console.log('Error');
+    console.log('Error: ', e);
   }
 }
