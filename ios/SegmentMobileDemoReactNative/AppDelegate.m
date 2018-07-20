@@ -9,6 +9,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <Analytics/SEGAnalytics.h>
 
 @implementation AppDelegate
 
@@ -23,6 +24,12 @@
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+  
+  SEGAnalyticsConfiguration *configuration = [SEGAnalyticsConfiguration configurationWithWriteKey:@"bPLTOh8v23u5MPuvUaqClUFqD7VVRQxU"];
+  configuration.trackApplicationLifecycleEvents = YES; // Enable this to record certain application events automatically!
+  configuration.recordScreenViews = NO; // Enable this to record screen views automatically!
+  [SEGAnalytics debug:YES];
+  [SEGAnalytics setupWithConfiguration:configuration];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
