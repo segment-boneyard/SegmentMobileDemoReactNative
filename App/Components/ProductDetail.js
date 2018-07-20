@@ -18,8 +18,6 @@ export default class ProductDetail extends Component {
       );
     });
 
-    return (
-      <></>
-    );
+    return ( );
   }
 }
