@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import { FlatList, View, Text, Dimensions, StyleSheet, Image } from 'react-native';
+import { FlatList,
+         View,
+         Text,
+         Dimensions,
+         StyleSheet,
+         Image,
+         TouchableOpacity } from 'react-native';
 
 const numColumns = 1;
-const defaultMargin = 2;
+const defaultMargin = 5;
 
 const size = (Dimensions.get('window').width/numColumns)-defaultMargin*2;
 const styles = StyleSheet.create({
@@ -851,15 +857,24 @@ export default class ProductsGrid extends Component {
 
   navigate = this.props.navigation;
 
+  onPressItem = (item) => {
+
+  }
+
   renderItem = (item) => {
+    onPress = () => {
+      this.props.onPress(this.props.id);
+    }
     return (
-      <View style={styles.itemContainer}>
-        <Image style={styles.imageStyle} source={{uri: `${item.item.variants.edges[0].node.image.src}`}}/>
-        <View style={styles.itemTitleBar}>
-          <Text style={styles.itemLabel}>{item.item.title}</Text>
-          <Text style={styles.itemPrice}>${item.item.variants.edges[0].node.price}</Text>
+      <TouchableOpacity onPress={this.onPress}>
+        <View style={styles.itemContainer}>
+          <Image style={styles.imageStyle} source={{uri: `${item.item.variants.edges[0].node.image.src}`}}/>
+          <View style={styles.itemTitleBar}>
+            <Text style={styles.itemLabel}>{item.item.title}</Text>
+            <Text style={styles.itemPrice}>${item.item.variants.edges[0].node.price}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 
