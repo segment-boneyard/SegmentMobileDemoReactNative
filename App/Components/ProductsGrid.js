@@ -848,8 +848,10 @@ const data = [
 ];
 
 export default class ProductsGrid extends Component {
+
+  navigate = this.props.navigation;
+
   renderItem = (item) => {
-    console.log(item.item.title);
     return (
       <View style={styles.itemContainer}>
         <Image style={styles.imageStyle} source={{uri: `${item.item.variants.edges[0].node.image.src}`}}/>

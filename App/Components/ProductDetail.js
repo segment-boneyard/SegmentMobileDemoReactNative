@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View, Text, Dimensions, StyleSheet, Image } from 'react-native';
 
 export default class ProductDetail extends Component {
   render() {
@@ -8,7 +9,7 @@ export default class ProductDetail extends Component {
     let variant_selectors = this.props.product.options.map((option) => {
       return (
         <View>
-          <Image src={variantImage} />
+          <Image source={variantImage} />
           <VariantSelector
             handleOptionChange={this.handleOptionChange}
             key={option.id.toString()}
@@ -18,6 +19,10 @@ export default class ProductDetail extends Component {
       );
     });
 
-    return ( );
+    return (
+      <View>
+        <Image source={{uri: `${this.props.product.variants.edges[0].node.image.src}`}}/>
+      </View>
+    );
   }
 }
