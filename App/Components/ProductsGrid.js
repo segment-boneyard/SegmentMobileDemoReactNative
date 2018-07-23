@@ -855,18 +855,13 @@ const data = [
 
 export default class ProductsGrid extends Component {
 
-  navigate = this.props.navigation;
-
   onPressItem = (item) => {
-
+    this.props.navigation.navigate('ProductDetailScreen');
   }
 
   renderItem = (item) => {
-    onPress = () => {
-      this.props.onPress(this.props.id);
-    }
     return (
-      <TouchableOpacity onPress={this.onPress}>
+      <TouchableOpacity onPress={this.onPressItem}>
         <View style={styles.itemContainer}>
           <Image style={styles.imageStyle} source={{uri: `${item.item.variants.edges[0].node.image.src}`}}/>
           <View style={styles.itemTitleBar}>
@@ -879,6 +874,7 @@ export default class ProductsGrid extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <FlatList
         data={data}

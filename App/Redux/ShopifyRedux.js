@@ -22,8 +22,8 @@ export const INITIAL_STATE = Immutable({
 
 /* ------------- Selectors ------------- */
 
-export const GithubSelectors = {
-  selectAvatar: state => state.github.avatar
+export const ShopifySelectors = {
+  selectProducts: state => state.products
 };
 
 /* ------------- Reducers ------------- */
@@ -33,9 +33,9 @@ export const request = (state) =>
   state.merge({ fetching: true, error: null });
 
 // successful product fetch
-export const success = (state, actions) => {
+export const success = (state, action) => {
   const { products } = action;
-  return state.merge({ fetching: false, error: null, ...products });
+  return state.merge({ fetching: false, products });
 };
 
 // failed to get products
