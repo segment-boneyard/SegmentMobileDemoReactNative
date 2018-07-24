@@ -48,13 +48,9 @@ const styles = StyleSheet.create({
 
 export default class ProductsGrid extends Component {
 
-  onPressItem = (item) => {
-    this.props.nav.navigate('ProductDetailScreen');
-  }
-
   renderItem = (item) => {
     return (
-      <TouchableOpacity onPress={this.onPressItem}>
+      <TouchableOpacity onPress={this.props.onPressItem}>
         <View style={styles.itemContainer}>
           <Image style={styles.imageStyle} source={{uri: `${item.item.variants.edges[0].node.image.src}`}}/>
           <View style={styles.itemTitleBar}>
