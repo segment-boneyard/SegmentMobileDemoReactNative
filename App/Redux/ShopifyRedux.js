@@ -30,7 +30,7 @@ export const ShopifySelectors = {
 
 // request all products for the store
 export const request = (state) =>
-  state.merge({ fetching: true, error: null });
+  state.merge({ fetching: true, error: null, products: null });
 
 // successful product fetch
 export const success = (state, action) => {

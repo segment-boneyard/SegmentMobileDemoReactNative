@@ -874,10 +874,9 @@ export default class ProductsGrid extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <FlatList
-        data={data}
+        data={this.props.products}
         renderItem={this.renderItem}
         keyExtractor={item => item.id}
         numColumns={numColumns} />

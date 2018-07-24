@@ -25,7 +25,6 @@ export default function * root () {
   yield all([
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
-    takeLatest(StartupTypes.STARTUP, getProducts),
     takeLatest(ShopifyTypes.PRODUCT_REQUEST, getProducts)
   ]);
 }
