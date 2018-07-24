@@ -7,6 +7,7 @@ target 'SegmentMobileDemoReactNative' do
 
   # Pods for SegmentMobileDemoReactNative
   pod 'Analytics', '~> 3.0'
+  pod 'Segment-Appboy'
 
   target 'SegmentMobileDemoReactNativeTests' do
     inherit! :search_paths

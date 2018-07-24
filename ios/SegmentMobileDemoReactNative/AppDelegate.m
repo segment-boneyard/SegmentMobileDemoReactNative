@@ -10,6 +10,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <Analytics/SEGAnalytics.h>
+#import "SEGAppboyIntegrationFactory.h"
+#import "Appboy.h"
 
 @implementation AppDelegate
 
@@ -29,6 +31,7 @@
   configuration.trackApplicationLifecycleEvents = YES; // Enable this to record certain application events automatically!
   configuration.recordScreenViews = NO; // Enable this to record screen views automatically!
   [SEGAnalytics debug:YES];
+  [configuration use:[SEGAppboyIntegrationFactory instance]];
   [SEGAnalytics setupWithConfiguration:configuration];
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
