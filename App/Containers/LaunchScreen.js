@@ -21,6 +21,7 @@ export class LaunchScreen extends Component {
 const mapStateToProps = state => ({
   fetching: state.shopify.fetching,
   error: state.shopify.error,
-  products: state.shopify.products });
+  products: state.shopify.products,
+  nav: state.nav });
 
 export default connect(mapStateToProps)(LaunchScreen);
