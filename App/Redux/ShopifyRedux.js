@@ -34,8 +34,11 @@ export const request = (state) =>
 
 // successful product fetch
 export const success = (state, action) => {
+  console.log({message: 'reducer state', state, action});
   const { products } = action;
-  return state.merge({ fetching: false, products });
+  const newState = { fetching: false, products };
+  console.log({message: 'new state', newState });
+  return state.merge(newState);
 };
 
 // failed to get products
