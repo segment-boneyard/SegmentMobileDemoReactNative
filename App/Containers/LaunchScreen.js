@@ -12,12 +12,15 @@ export class LaunchScreen extends Component {
   render () {
     return (
       <View style={styles.mainContainer}>
-        <ProductsGrid products={this.props.products}/>
+        <ProductsGrid products={this.props.products} nav={this.props.nav}/>
       </View>
     )
   }
 }
 
-const mapStateToProps = state => ({fetching: state.shopify.fetching, error: state.shopify.error, products: state.shopify.products});
+const mapStateToProps = state => ({
+  fetching: state.shopify.fetching,
+  error: state.shopify.error,
+  products: state.shopify.products });
 
 export default connect(mapStateToProps)(LaunchScreen);

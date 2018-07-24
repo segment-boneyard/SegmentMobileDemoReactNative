@@ -12,11 +12,8 @@ export function * getProducts(api, action) {
   try {
     const result = yield call(fetchProducts);
     const products = getProductNodes(result.data.shop.products.edges);
-    //console.log(JSON.stringify(result.data.shop,null, 2));
-    console.log({message: 'ShopifyActions', actions: ShopifyActions });
     yield put(ShopifyActions.productSuccess(products));
   } catch (e) {
-    console.log('Error: ', e);
     yield put(ShopifyActions.productFailure());
   }
 }
