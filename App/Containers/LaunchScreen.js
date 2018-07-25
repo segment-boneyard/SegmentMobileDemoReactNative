@@ -10,10 +10,15 @@ import { NavigationActions } from 'react-navigation';
 import styles from './Styles/LaunchScreenStyles'
 
 export class LaunchScreen extends Component {
+
+  detailScreen = () => {
+    this.props.navigation.navigate('ProductDetailScreen');
+  }
+
   render () {
     return (
       <View style={styles.mainContainer}>
-        <ProductsGrid products={this.props.products} onPressItem={this.props.detailScreen}/>
+        <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
       </View>
     )
   }
@@ -28,7 +33,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   detailScreen: () => {
-    NavigationActions.navigate({ routeName: 'ProductDetailScreen'}); },
+    dispatch(NavigationActions.navigate({ routeName: 'ProductDetailScreen'})); },
 });
 
 export default connect(mapStateToProps)(LaunchScreen);
