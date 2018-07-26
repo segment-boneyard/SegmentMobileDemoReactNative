@@ -1,6 +1,8 @@
 import {Dimensions, Platform} from 'react-native'
 
 const { width, height } = Dimensions.get('window')
+const numColumns = 1;
+const smallMargin = 5;
 
 // Used via Metrics.baseMargin
 const metrics = {
@@ -9,7 +11,7 @@ const metrics = {
   section: 25,
   baseMargin: 10,
   doubleBaseMargin: 20,
-  smallMargin: 5,
+  smallMargin: smallMargin,
   doubleSection: 50,
   horizontalLineHeight: 1,
   screenWidth: width < height ? width : height,
@@ -28,7 +30,12 @@ const metrics = {
     medium: 40,
     large: 60,
     logo: 200
-  }
+  },
+  productList: {
+    numColumns: 1,
+    imageSize: (width/numColumns)-smallMargin*2,
+    imageRatio: 1.499,
+  },
 }
 
 export default metrics

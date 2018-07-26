@@ -2,54 +2,13 @@ import React, { Component } from 'react';
 import { FlatList,
          View,
          Text,
-         Dimensions,
-         StyleSheet,
          Image,
          TouchableOpacity } from 'react-native';
-
-const numColumns = 1;
-const defaultMargin = 5;
-
-const size = (Dimensions.get('window').width/numColumns)-defaultMargin*2;
-const styles = StyleSheet.create({
-  itemContainer: {
-    width: size,
-    //height: size,
-    flex: 1,
-    flexDirection: 'column',
-    margin: defaultMargin,
-  },
-  item: {
-    flex: 1,
-    margin: defaultMargin,
-  },
-  itemTitleBar: {
-    flex: 1,
-    margin: defaultMargin,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  itemLabel: {
-    margin: defaultMargin,
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  itemPrice: {
-    margin: defaultMargin,
-    fontSize: 20,
-  },
-  imageStyle: {
-    flex: 1,
-    resizeMode: 'contain',
-    width: size,
-    height: size / 1.499,  // Hard-coded based off of sample Shopify images
-  },
-});
+import styles from '../Containers/Styles/LaunchScreenStyles';
+import { Metrics } from '../Themes';
 
 export default class ProductsGrid extends Component {
-
   renderItem = (item) => {
-
     onPress = () => {
       this.props.onPressItem(item.item);
     }
@@ -73,7 +32,7 @@ export default class ProductsGrid extends Component {
         data={this.props.products}
         renderItem={this.renderItem}
         keyExtractor={item => item.id}
-        numColumns={numColumns} />
+        numColumns={Metrics.productList.numColumns} />
     );
   }
 }
