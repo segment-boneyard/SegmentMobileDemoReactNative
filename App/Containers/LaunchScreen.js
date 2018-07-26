@@ -11,8 +11,8 @@ import styles from './Styles/LaunchScreenStyles'
 
 export class LaunchScreen extends Component {
 
-  detailScreen = () => {
-    this.props.navigation.navigate('ProductDetailScreen');
+  detailScreen = (item) => {
+    this.props.navigation.navigate('ProductDetailScreen', { ...item });
   }
 
   render () {
