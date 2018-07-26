@@ -1,6 +1,6 @@
 import { StyleSheet,
-         Dimensions } from 'react-native'
-import { Metrics, ApplicationStyles } from '../../Themes/'
+         Dimensions } from 'react-native';
+import { Metrics, ApplicationStyles } from '../../Themes/';
 
 
 export default StyleSheet.create({
@@ -49,4 +49,4 @@ export default StyleSheet.create({
     width: Metrics.productList.imageSize,
     height: Metrics.productList.imageSize / Metrics.productList.imageRatio,  // Hard-coded based off of sample Shopify images
   },
-})
+});
