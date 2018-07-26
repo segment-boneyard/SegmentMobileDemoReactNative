@@ -24,6 +24,12 @@ export default StyleSheet.create({
     flexDirection: 'column',
     margin: Metrics.smallMargin,
   },
+  detailsContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    margin: Metrics.smallMargin,
+  },
   item: {
     flex: 1,
     margin: Metrics.smallMargin,

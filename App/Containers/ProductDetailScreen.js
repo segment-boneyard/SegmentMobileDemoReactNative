@@ -24,7 +24,7 @@ export default class ProductDetailScreen extends Component {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
     const {params} = this.props.navigation.state;
     return (
-      <View style={styles.mainContainer}>
+      <View style={styles.detailsContainer}>
         <View style={styles.itemTitleBar}>
           <Text style={styles.itemLabel}>
             {params.title}
