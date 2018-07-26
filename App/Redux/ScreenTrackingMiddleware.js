@@ -29,17 +29,10 @@ const screenTracking = ({ getState }) => next => (action) => {
   const nextScreen = getCurrentRouteName(getState().nav);
   if (nextScreen !== currentScreen) {
     try {
-<<<<<<< HEAD
-      console.log(`NAVIGATING ${currentScreen} to ${nextScreen}`)
-      // Example: Analytics.trackEvent('user_navigation', {currentScreen, nextScreen})
-    } catch (e) {
-      console.log(e)
-=======
       console.log(`NAVIGATING ${currentScreen} to ${nextScreen}`);
       Analytics.screen(`${nextScreen}`);
     } catch (e) {
       console.log(e);
->>>>>>> add-braze-sdk
     }
   }
   return result;
