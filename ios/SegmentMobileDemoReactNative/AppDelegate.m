@@ -39,6 +39,21 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max) {
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge)
+                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
+                            [[Appboy sharedInstance] pushAuthorizationFromUserNotificationCenter:granted];
+                          }];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+  } else {
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) categories:nil];
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+  }
+  
   return YES;
 }
 
