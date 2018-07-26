@@ -4,16 +4,14 @@ import { Picker } from 'react-native';
 export default class VariantSelector extends Component {
   render() {
     return (
+      // TODO: Change this to an https://facebook.github.io/react-native/docs/actionsheetios.html
       <Picker
-        selectedValue={this.state.variant}
-        style={{}}
         onValueChange={this.props.handleOptionChange}>
-        {this.props.option.values.map((value) => {
+        {this.props.variants.edges.map((variant) => {
           return (
-            <Picker.Item value={value} label={`${this.props.option.name}-${value}`}/>
+            <Picker.Item value={variant.node.title} label={`${variant.node.title}`}/>
           ); })}
       </Picker>
-
     );
   }
 }
