@@ -12,6 +12,14 @@ export default class ProductDetailScreen extends Component {
     // called when the product variant selector is changed
   }
 
+  handleAddToCart = () => {
+
+  }
+
+  handleAddToWishlist = () => {
+
+  }
+
   render() {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
     const {params} = this.props.navigation.state;
@@ -22,7 +30,7 @@ export default class ProductDetailScreen extends Component {
             {params.title}
           </Text>
           <Text style={styles.itemPrice}>
-            {params.variants.edges[0].node.price}
+            {`$${params.variants.edges[0].node.price}`}
           </Text>
         </View>
         <Image
@@ -31,7 +39,12 @@ export default class ProductDetailScreen extends Component {
         <VariantSelector
           variants={params.variants}
           handleOptionChange={this.handleVariantChange}/>
-        <Button title={'ADD TO CART'}/>
+        <Button
+          onPress={this.handleAddToCart}
+          title={'ADD TO CART'}/>
+        <Button
+          onPress={this.handleAddToWishlist}
+          title={'ADD TO WISHLIST'}/>
       </View>
     );
   }
