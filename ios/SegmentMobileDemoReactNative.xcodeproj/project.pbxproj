@@ -46,6 +46,7 @@
 		684D10750A7E4470A5196BBE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E220440336F744BEBD6FC384 /* FontAwesome.ttf */; };
 		6F6983FCBD180F526ED30F48 /* libPods-SegmentMobileDemoReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB3B810522176E56666753F /* libPods-SegmentMobileDemoReactNative.a */; };
 		769EC8B357F04867A5D704E5 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3534CE9CD29E4BDCA2495607 /* Entypo.ttf */; };
+		7881EE7D210B9DA7002E319B /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7881EE79210B8513002E319B /* libRCTPushNotification.a */; };
 		7899BAFEFEAA4CB28FFC72EA /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15BEA1FBF4E4A8C9B2B28C2 /* MaterialCommunityIcons.ttf */; };
 		7E9BEC0772CF45449EB089BD /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD44DC134644E59A6E1664 /* libRNI18n-tvOS.a */; };
 		81D5F656AF8840FA8AF9D487 /* RNI18nTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB0C463484C42D7B724F30B /* RNI18nTests.xctest */; };
@@ -457,6 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7881EE7D210B9DA7002E319B /* libRCTPushNotification.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -1975,7 +1977,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2010,7 +2012,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

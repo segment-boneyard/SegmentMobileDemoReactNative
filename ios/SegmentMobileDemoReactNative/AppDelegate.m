@@ -10,6 +10,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <Analytics/SEGAnalytics.h>
+#import <React/RCTPushNotificationManager.h>
 #import "SEGAppboyIntegrationFactory.h"
 #import "Appboy.h"
 
@@ -67,7 +68,8 @@
     [[SEGAppboyIntegrationFactory instance] saveRemoteNotification:userInfo];
   }
   [[SEGAnalytics sharedAnalytics] receivedRemoteNotification:userInfo];
-  completionHandler(UIBackgroundFetchResultNoData);
+  //completionHandler(UIBackgroundFetchResultNoData);
+  [RCTPushNotificationManager didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
