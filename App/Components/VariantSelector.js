@@ -14,7 +14,10 @@ export default class VariantSelector extends Component {
       cancelButtonIndex: 0,
     },
     (buttonIndex) => {
-
+      if(buttonIndex > 0) {
+        this.props.sizeSelected = sizes[buttonIndex];
+        this.props.handleOptionChange(sizes[buttonIndex]);
+      }
     });
   }
 

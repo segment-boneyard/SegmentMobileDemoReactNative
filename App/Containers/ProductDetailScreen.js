@@ -3,10 +3,12 @@ import { Text,
          Image,
          View,
          Button } from 'react-native';
+import { connect } from 'react-redux';
 import styles from './Styles/LaunchScreenStyles'
 import VariantSelector from '../Components/VariantSelector';
+import ShopifyActions from '../Redux/ShopifyRedux';
 
-export default class ProductDetailScreen extends Component {
+export class ProductDetailScreen extends Component {
 
   handleVariantChange = () => {
     // called when the product variant selector is changed
@@ -37,7 +39,10 @@ export default class ProductDetailScreen extends Component {
           style={styles.imageStyle}
           source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
         <VariantSelector
+          productId={params.id}
+          productTitle={params.title}
           variants={params.variants}
+          selectedVariant={this.props.selectedVariant}
           handleOptionChange={this.handleVariantChange}/>
         <Button
           onPress={this.handleAddToCart}
@@ -49,3 +54,19 @@ export default class ProductDetailScreen extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  selectedVariant: state.shopify.selectedVariant,
+  cart: state.shopify.cart,
+  products: state.shopify.products,
+  selectedProduct: state.shopify.selectedProduct,
+});
+
+const mapDispatchToProps = dispatch => ({
+  variantSelected: (variant) => {
+    dispatch(ShopifyActions.variantSelected(variant)); },
+  addToCart: (variant) => {
+    dispatch(ShopifyActions.addToCart(variant)); },
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailScreen);
