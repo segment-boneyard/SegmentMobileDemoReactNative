@@ -27,7 +27,6 @@ export default StyleSheet.create({
   detailsContainer: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'flex-start',
     margin: Metrics.smallMargin,
   },
   item: {

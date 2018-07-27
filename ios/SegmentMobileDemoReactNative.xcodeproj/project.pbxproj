@@ -870,6 +870,8 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = ENLA8E7Z4L;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -1616,6 +1618,9 @@
 			baseConfigurationReference = 504601F05A9FD35626FA9590 /* Pods-SegmentMobileDemoReactNativeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = ENLA8E7Z4L;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1641,6 +1646,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SegmentMobileDemoReactNative.app/SegmentMobileDemoReactNative";
 			};
 			name = Debug;
@@ -1650,7 +1656,9 @@
 			baseConfigurationReference = DABBC46AE65C2DFFD33E59A6 /* Pods-SegmentMobileDemoReactNativeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = ENLA8E7Z4L;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
@@ -1672,6 +1680,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SegmentMobileDemoReactNative.app/SegmentMobileDemoReactNative";
 			};
 			name = Release;
@@ -1700,7 +1709,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.segment.demoreactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.segment.SegmentMobileDemoReactNative;
 				PRODUCT_NAME = SegmentMobileDemoReactNative;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1729,7 +1738,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.segment.demoreactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.segment.SegmentMobileDemoReactNative;
 				PRODUCT_NAME = SegmentMobileDemoReactNative;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

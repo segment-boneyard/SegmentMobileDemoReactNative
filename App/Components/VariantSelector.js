@@ -18,11 +18,16 @@ export default class VariantSelector extends Component {
     });
   }
 
+  sizeSelectorLabel = () => {
+    return this.props.sizeSelected ? `SIZE: ${this.props.sizeSelected}` :
+     'SELECT A SIZE';
+  }
+
   render() {
     return (
       <Button
         onPress={this.showActionSheet}
-        title={'SIZE: '}/>
+        title={`${this.sizeSelectorLabel()}`}/>
     );
   }
 }
