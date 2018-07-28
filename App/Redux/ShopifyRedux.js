@@ -34,10 +34,10 @@ export const request = (state) =>
 
 // successful product fetch
 export const success = (state, action) => {
-  console.log({message: 'reducer state', state, action});
+  //console.log({message: 'reducer state', state, action});
   const { products } = action;
   const newState = { fetching: false, products };
-  console.log({message: 'new state', newState });
+  //console.log({message: 'new state', newState });
   return state.merge(newState);
 };
 

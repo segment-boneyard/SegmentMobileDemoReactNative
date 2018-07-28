@@ -41,18 +41,17 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   
-  if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max) {
-    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-    center.delegate = self;
-    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert | UNAuthorizationOptionSound | UNAuthorizationOptionBadge)
-                          completionHandler:^(BOOL granted, NSError * _Nullable error) {
-                            [[Appboy sharedInstance] pushAuthorizationFromUserNotificationCenter:granted];
-                          }];
+  if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
+    UIUserNotificationType types = UIUserNotificationTypeAlert | UIUserNotificationTypeSound |
+    UIUserNotificationTypeBadge;
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types
+                                                                             categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
   } else {
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) categories:nil];
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    UIRemoteNotificationType types = UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound |
+    UIRemoteNotificationTypeBadge;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:types];
   }
   
   return YES;
@@ -61,6 +60,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
   [[SEGAnalytics sharedAnalytics] receivedRemoteNotification:userInfo];
+  NSLog(@"**********************   GOT PUSH ************************");
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
@@ -69,6 +69,7 @@
   }
   [[SEGAnalytics sharedAnalytics] receivedRemoteNotification:userInfo];
   //completionHandler(UIBackgroundFetchResultNoData);
+  NSLog(@"**********************   GOT PUSH ************************");
   [RCTPushNotificationManager didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
 
@@ -77,13 +78,18 @@
   [[SEGAnalytics sharedAnalytics] registeredForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+  // register to receive notifications
+  [application registerForRemoteNotifications];
+}
+
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler
 {
-  if ([Appboy sharedInstance] == nil) {
+  /*if ([Appboy sharedInstance] == nil) {
     [[SEGAppboyIntegrationFactory instance] saveRemoteNotification:userInfo];
   }
   [[SEGAnalytics sharedAnalytics] handleActionWithIdentifier:identifier forRemoteNotification:userInfo];
-  completionHandler();
+  completionHandler();*/
 }
 
 - (void)setupPushCategories {
