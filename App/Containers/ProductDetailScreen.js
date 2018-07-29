@@ -10,8 +10,23 @@ import ShopifyActions from '../Redux/ShopifyRedux';
 
 export class ProductDetailScreen extends Component {
 
-  handleVariantChange = () => {
+  constructor(props) {
+    super(props);
+    const { params } = this.props.navigation.state;
+    this.currentVariant = {
+      productId: params.id,
+      productImage: params.variants.edges[0].node.image.src,
+      title: params.title,
+      price: params.variants.edges[0].node.price,
+      variant: null,
+    };
+  }
+
+  handleVariantChange = (variant) => {
     // called when the product variant selector is changed
+    console.log('VARIANT CHANGED TO: ', variant);
+    this.currentVariant.variant = variant;
+    this.props.variantSelected(variant);
   }
 
   handleAddToCart = () => {
@@ -39,8 +54,6 @@ export class ProductDetailScreen extends Component {
           style={styles.imageStyle}
           source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
         <VariantSelector
-          productId={params.id}
-          productTitle={params.title}
           variants={params.variants}
           selectedVariant={this.props.selectedVariant}
           handleOptionChange={this.handleVariantChange}/>
@@ -59,7 +72,6 @@ const mapStateToProps = state => ({
   selectedVariant: state.shopify.selectedVariant,
   cart: state.shopify.cart,
   products: state.shopify.products,
-  selectedProduct: state.shopify.selectedProduct,
 });
 
 const mapDispatchToProps = dispatch => ({
