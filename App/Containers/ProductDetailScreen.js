@@ -10,6 +10,10 @@ import ShopifyActions from '../Redux/ShopifyRedux';
 
 export class ProductDetailScreen extends Component {
 
+  static navigationOptions = ({navigation}) => ({
+    title: 'PRODUCT',
+  });
+
   constructor(props) {
     super(props);
     const { params } = this.props.navigation.state;
@@ -22,9 +26,12 @@ export class ProductDetailScreen extends Component {
     };
   }
 
+  static navigationOptions = {
+
+  }
+
   handleVariantChange = (variant) => {
     // called when the product variant selector is changed
-    console.log('VARIANT CHANGED TO: ', variant);
     this.currentVariant.variant = variant;
     this.props.variantSelected(variant);
   }

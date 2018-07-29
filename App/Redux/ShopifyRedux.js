@@ -23,7 +23,7 @@ export const INITIAL_STATE = Immutable({
   fetching: null,
   error: null,
   selectedVariant: null,
-  cart: null,
+  cart: [],
 });
 
 /* ------------- Selectors ------------- */

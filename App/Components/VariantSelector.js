@@ -21,7 +21,6 @@ export default class VariantSelector extends Component {
   }
 
   sizeSelectorLabel = () => {
-    console.log(this.props.selectedVariant);
     return this.props.selectedVariant === null ?
       'SELECT A SIZE' :
       `SIZE: ${this.props.selectedVariant}`;
