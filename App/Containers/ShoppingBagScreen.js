@@ -14,6 +14,10 @@ export class ShoppingBagScreen extends Component {
     title: 'YOUR BAG',
   };
 
+  constructor(props) {
+    super(props);
+  }
+
   renderItem = (item) => {
     return (
       <View style={styles.cartItemContainer}>

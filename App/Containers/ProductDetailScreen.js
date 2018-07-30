@@ -26,10 +26,6 @@ export class ProductDetailScreen extends Component {
     };
   }
 
-  static navigationOptions = {
-
-  }
-
   handleVariantChange = (variant) => {
     // called when the product variant selector is changed
     this.currentVariant.variant = variant;
