@@ -37,7 +37,9 @@ export class ProductDetailScreen extends Component {
   }
 
   handleAddToCart = () => {
-
+    if(this.currentVariant.variant) {
+      this.props.addToCart(this.currentVariant);
+    }
   }
 
   handleAddToWishlist = () => {

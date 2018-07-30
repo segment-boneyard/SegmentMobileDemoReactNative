@@ -23,7 +23,7 @@ export const INITIAL_STATE = Immutable({
   fetching: null,
   error: null,
   selectedVariant: null,
-  cart: [],
+  cart: Immutable([]),
 });
 
 /* ------------- Selectors ------------- */
@@ -57,7 +57,8 @@ export const variantSelected = (state, action) => {
 }
 
 export const addToCart = (state, action) => {
-
+  const { variant } = action;
+  return state.merge({ cart: state.cart.concat([variant]) });
 }
 
 export const removeFromCart = (state, action) => {
