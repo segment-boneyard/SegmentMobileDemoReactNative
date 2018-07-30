@@ -18,11 +18,11 @@ class ShoppingBagScreen extends Component {
     super(props);
   }
 
-  renderItem = (item) => {
+  renderItem = ({item}) => {
     return (
       <View style={styles.cartItemContainer}>
         <Image
-          style={styles.cartImageStyle}
+          style={styles.cartImage}
           source={{uri: `${item.productImage}`}}/>
         <View style={styles.cartItemTitleBar}>
           <Text style={styles.itemLabel}>{item.title}</Text>
@@ -47,6 +47,7 @@ class ShoppingBagScreen extends Component {
         </View>
       );
     } else {
+      console.log('CART: ', this.props.cart);
       return (
         <FlatList
           data={this.props.cart}

@@ -24,6 +24,21 @@ export default StyleSheet.create({
     flexDirection: 'column',
     margin: Metrics.smallMargin,
   },
+  cartItemContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    margin: Metrics.smallMargin,
+  },
+  cartImage : {
+    resizeMode: 'contain',
+    width: Metrics.productList.imageSize / 2,
+    height: Metrics.productList.imageSize / Metrics.productList.imageRatio / 2,
+  },
+  cartItemTitleBar: {
+    flex: 1,
+    flexDirection: 'column',
+    margin: Metrics.smallMargin,
+  },
   detailsContainer: {
     flex: 1,
     flexDirection: 'column',
