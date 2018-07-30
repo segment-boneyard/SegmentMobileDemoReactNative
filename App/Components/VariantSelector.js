@@ -5,22 +5,25 @@ import { Button,
 export default class VariantSelector extends Component {
 
   showActionSheet = () => {
-    let sizes = [];
-    sizes.push('CANCEL');
+    let sizeLabels = [];
+    sizeLabels.push('CANCEL');
     this.props.variants.edges.map(
-      (variant) => sizes.push(variant.node.title));
+      (variant) => sizeLabels.push(variant.node.title));
     ActionSheetIOS.showActionSheetWithOptions({
-      options: sizes,
+      options: sizeLabels,
       cancelButtonIndex: 0,
     },
     (buttonIndex) => {
-
+      if(buttonIndex > 0) {
+        this.props.handleOptionChange(sizeLabels[buttonIndex]);
+      }
     });
   }
 
   sizeSelectorLabel = () => {
-    return this.props.sizeSelected ? `SIZE: ${this.props.sizeSelected}` :
-     'SELECT A SIZE';
+    return this.props.selectedVariant === null ?
+      'SELECT A SIZE' :
+      `SIZE: ${this.props.selectedVariant}`;
   }
 
   render() {

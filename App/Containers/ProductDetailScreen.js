@@ -2,22 +2,44 @@ import React, { Component } from 'react';
 import { Text,
          Image,
          View,
-         Button } from 'react-native';
+         Button,
+         TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import styles from './Styles/LaunchScreenStyles'
 import VariantSelector from '../Components/VariantSelector';
+import ShopifyActions from '../Redux/ShopifyRedux';
 
-export default class ProductDetailScreen extends Component {
+export class ProductDetailScreen extends Component {
 
-  handleVariantChange = () => {
+  static navigationOptions = ({navigation}) => ({
+    title: 'PRODUCT',
+  });
+
+  constructor(props) {
+    super(props);
+    const { params } = this.props.navigation.state;
+    this.currentVariant = {
+      productId: params.id,
+      productImage: params.variants.edges[0].node.image.src,
+      title: params.title,
+      price: params.variants.edges[0].node.price,
+      variant: null,
+    };
+  }
+
+  handleVariantChange = (variant) => {
     // called when the product variant selector is changed
+    this.currentVariant.variant = variant;
+    this.props.variantSelected(variant);
   }
 
   handleAddToCart = () => {
-
+    if(this.currentVariant.variant) {
+      this.props.addToCart(this.currentVariant);
+    }
   }
 
   handleAddToWishlist = () => {
-
   }
 
   render() {
@@ -38,6 +60,7 @@ export default class ProductDetailScreen extends Component {
           source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
         <VariantSelector
           variants={params.variants}
+          selectedVariant={this.props.selectedVariant}
           handleOptionChange={this.handleVariantChange}/>
         <Button
           onPress={this.handleAddToCart}
@@ -49,3 +72,18 @@ export default class ProductDetailScreen extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { selectedVariant: state.shopify.selectedVariant,
+  cart: state.shopify.cart,
+  products: state.shopify.products, };
+};
+
+const mapDispatchToProps = dispatch => ({
+  variantSelected: (variant) => {
+    dispatch(ShopifyActions.variantSelected(variant)); },
+  addToCart: (variant) => {
+    dispatch(ShopifyActions.addToCart(variant)); },
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetailScreen);

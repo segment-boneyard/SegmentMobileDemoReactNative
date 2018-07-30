@@ -11,6 +11,10 @@ import styles from './Styles/LaunchScreenStyles'
 
 export class LaunchScreen extends Component {
 
+  static navigationOptions = {
+    title: 'SEGMENT STORE',
+  };
+
   detailScreen = (item) => {
     // This passes params via navigation, which is a kludge. Read about it here:
     // https://reactnavigation.org/docs/en/params.html

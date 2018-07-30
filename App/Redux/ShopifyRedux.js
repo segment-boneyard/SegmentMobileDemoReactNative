@@ -6,7 +6,11 @@ import Immutable from 'seamless-immutable';
 const { Types, Creators } = createActions({
   productRequest: null,
   productSuccess: ['products'],
-  productFailure: null
+  productFailure: null,
+  addToCart: ['variant'],
+  removeFromCart: ['variant'],
+  clearCart: null,
+  variantSelected: ['variant'],
 });
 
 export const ShopifyTypes = Types;
@@ -18,37 +22,61 @@ export const INITIAL_STATE = Immutable({
   products: null,
   fetching: null,
   error: null,
+  selectedVariant: null,
+  cart: Immutable([]),
 });
 
 /* ------------- Selectors ------------- */
 
-export const ShopifySelectors = {
+/*export const ShopifySelectors = {
   selectProducts: state => state.products
-};
+};*/
 
 /* ------------- Reducers ------------- */
 
 // request all products for the store
-export const request = (state) =>
-  state.merge({ fetching: true, error: null, products: null });
+export const request = (state) => {
+  return state.merge({ fetching: true, error: null, products: null });
+}
 
 // successful product fetch
 export const success = (state, action) => {
-  console.log({message: 'reducer state', state, action});
   const { products } = action;
-  const newState = { fetching: false, products };
-  console.log({message: 'new state', newState });
-  return state.merge(newState);
-};
+  return state.merge({ fetching: false, error: null, products });
+}
 
 // failed to get products
-export const failure = (state) =>
-  state.merge({ fetching: false, error: true, products: null });
+// TODO: This needs to be handled in the UI - right now it is pretty much going to crash
+export const failure = (state) => {
+  return state.merge({ fetching: false, error: true, products: null });
+}
+
+export const variantSelected = (state, action) => {
+  const { variant } = action;
+  return state.merge({ selectedVariant: variant });
+}
+
+export const addToCart = (state, action) => {
+  const { variant } = action;
+  return state.merge({ cart: state.cart.concat([variant]) });
+}
+
+export const removeFromCart = (state, action) => {
+
+}
+
+export const clearCart = (state) => {
+
+}
 
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.PRODUCT_REQUEST]: request,
   [Types.PRODUCT_SUCCESS]: success,
-  [Types.PRODUCT_FAILURE]: failure
+  [Types.PRODUCT_FAILURE]: failure,
+  [Types.ADD_TO_CART]: addToCart,
+  [Types.REMOVE_FROM_CART]: removeFromCart,
+  [Types.CLEAR_CART]: clearCart,
+  [Types.VARIANT_SELECTED]: variantSelected,
 });
