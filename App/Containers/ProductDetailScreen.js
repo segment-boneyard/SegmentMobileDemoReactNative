@@ -40,7 +40,6 @@ export class ProductDetailScreen extends Component {
   }
 
   handleAddToWishlist = () => {
-    this.props.navigation.navigate('ShoppingBagScreen');
   }
 
   render() {
@@ -75,7 +74,6 @@ export class ProductDetailScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('MAP STATE, ', state);
   return { selectedVariant: state.shopify.selectedVariant,
   cart: state.shopify.cart,
   products: state.shopify.products, };

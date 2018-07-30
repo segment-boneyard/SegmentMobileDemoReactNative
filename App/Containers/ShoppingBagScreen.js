@@ -33,8 +33,7 @@ class ShoppingBagScreen extends Component {
   }
 
   renderCart = () => {
-    console.log('CART: ', this.props);
-    if(this.props.cart) {
+    if(this.props.cart.length === 0) {
       console.log('NOTHING IN CART.');
       return (
         <View style={styles.mainContainer}>
@@ -67,7 +66,6 @@ class ShoppingBagScreen extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('MAP STATE, ', state);
   return { cart: state.shopify.cart,
   products: state.shopify.products,
   nav: state.nav, };
