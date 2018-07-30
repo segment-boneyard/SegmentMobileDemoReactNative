@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Text,
          Image,
          View,
-         Button } from 'react-native';
+         Button,
+         TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './Styles/LaunchScreenStyles'
 import VariantSelector from '../Components/VariantSelector';
@@ -39,7 +40,7 @@ export class ProductDetailScreen extends Component {
   }
 
   handleAddToWishlist = () => {
-
+    this.props.navigation.navigate('ShoppingBagScreen');
   }
 
   render() {
@@ -73,11 +74,12 @@ export class ProductDetailScreen extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  selectedVariant: state.shopify.selectedVariant,
+const mapStateToProps = state => {
+  console.log('MAP STATE, ', state);
+  return { selectedVariant: state.shopify.selectedVariant,
   cart: state.shopify.cart,
-  products: state.shopify.products,
-});
+  products: state.shopify.products, };
+};
 
 const mapDispatchToProps = dispatch => ({
   variantSelected: (variant) => {

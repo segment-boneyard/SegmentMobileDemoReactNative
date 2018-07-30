@@ -8,7 +8,7 @@ import { NavigationActions } from 'react-navigation';
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
-export class ShoppingBagScreen extends Component {
+class ShoppingBagScreen extends Component {
 
   static navigationOptions = {
     title: 'YOUR BAG',
@@ -66,10 +66,16 @@ export class ShoppingBagScreen extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  cart: state.shopify.cart,
+const mapStateToProps = (state) => {
+  console.log('MAP STATE, ', state);
+  return { cart: state.shopify.cart,
   products: state.shopify.products,
-  nav: state.nav,
-});
+  nav: state.nav, };
+};
 
-export default connect(mapStateToProps)(ShoppingBagScreen);
+const mapDispatchToProps = dispatch => ({
+  clearCart: () => {
+    dispatch(ShopifyActions.clearCart()); },
+  });
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShoppingBagScreen);

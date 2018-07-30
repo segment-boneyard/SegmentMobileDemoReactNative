@@ -6,7 +6,7 @@ import { TouchableOpacity, Text, Image } from 'react-native';
 
 import LaunchScreen from '../Containers/LaunchScreen';
 import ProductDetailScreen from '../Containers/ProductDetailScreen';
-import { ShoppingBagScreen } from '../Containers/ShoppingBagScreen';
+import ShoppingBagScreen from '../Containers/ShoppingBagScreen';
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator(
