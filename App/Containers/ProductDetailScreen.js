@@ -44,6 +44,7 @@ export class ProductDetailScreen extends Component {
 
   render() {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
+
     const {params} = this.props.navigation.state;
     return (
       <View style={styles.detailsContainer}>

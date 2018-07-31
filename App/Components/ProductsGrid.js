@@ -27,13 +27,8 @@ export default class ProductsGrid extends Component {
     );
   }
 
-  componentDidMount () {
-
-  }
-
   render() {
-    console.log('PRODUCTS: ', this.props.products);
-    Segment.productListViewed(this.props.products);
+    if(this.props.products) Segment.productListViewed(this.props.products);
     return (
       <FlatList
         data={this.props.products}
