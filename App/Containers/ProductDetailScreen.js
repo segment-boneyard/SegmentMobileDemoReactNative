@@ -42,6 +42,10 @@ export class ProductDetailScreen extends Component {
   handleAddToWishlist = () => {
   }
 
+  componentWillUnmount = () => {
+    this.props.clearVariant();
+  }
+
   render() {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
     const {params} = this.props.navigation.state;
@@ -82,6 +86,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
   variantSelected: (variant) => {
     dispatch(ShopifyActions.variantSelected(variant)); },
+  clearVariant: () => {
+    dispatch(ShopifyActions.variantSelected(null));
+  },
   addToCart: (variant) => {
     dispatch(ShopifyActions.addToCart(variant)); },
   });
