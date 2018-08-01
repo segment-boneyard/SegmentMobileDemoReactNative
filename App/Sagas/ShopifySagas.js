@@ -11,7 +11,6 @@ export const getProductNodes = R.compose(
 export function * getProducts(api, action) {
   try {
     const result = yield call(fetchProducts);
-    console.log('FETCHED: ', result);
     const products = getProductNodes(result.data.shop.products.edges);
     yield put(ShopifyActions.productSuccess(products));
   } catch (e) {
