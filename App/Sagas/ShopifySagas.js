@@ -4,7 +4,7 @@ import R from 'ramda';
 import ShopifyActions from '../Redux/ShopifyRedux';
 
 export const getProductNodes = R.compose(
-  R.map(R.pick(['id', 'title', 'variants'])),
+  R.map(R.pick(['id', 'title', 'description', 'variants'])),
   R.map(R.pathOr({},['node']))
   );
 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button,
-         ActionSheetIOS } from 'react-native';
+         ActionSheetIOS,
+         TouchableOpacity,
+         Text } from 'react-native';
 
 export default class VariantSelector extends Component {
 
@@ -28,9 +30,9 @@ export default class VariantSelector extends Component {
 
   render() {
     return (
-      <Button
-        onPress={this.showActionSheet}
-        title={`${this.sizeSelectorLabel()}`}/>
+      <TouchableOpacity style={{marginTop: 20}} onPress={this.showActionSheet}>
+        <Text style={{fontSize: 20, textAlign: 'center'}}>{`${this.sizeSelectorLabel()}`}</Text>
+      </TouchableOpacity>
     );
   }
 }

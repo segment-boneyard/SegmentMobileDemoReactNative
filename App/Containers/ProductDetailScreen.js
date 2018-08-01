@@ -7,12 +7,13 @@ import { Text,
 import { connect } from 'react-redux';
 import styles from './Styles/LaunchScreenStyles'
 import VariantSelector from '../Components/VariantSelector';
+import NavigationHeader from '../Components/NavigationHeader';
 import ShopifyActions from '../Redux/ShopifyRedux';
 
 export class ProductDetailScreen extends Component {
 
   static navigationOptions = ({navigation}) => ({
-    title: 'PRODUCT',
+    header: null,
   });
 
   constructor(props) {
@@ -50,37 +51,53 @@ export class ProductDetailScreen extends Component {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
     const {params} = this.props.navigation.state;
     return (
-      <View style={styles.detailsContainer}>
-        <View style={styles.itemTitleBar}>
-          <Text style={styles.itemLabel}>
-            {params.title}
-          </Text>
-          <Text style={styles.itemPrice}>
-            {`$${params.variants.edges[0].node.price}`}
-          </Text>
+      <View style={{flex: 1}}>
+        // Header
+        <NavigationHeader title={'PRODUCT'} navigation={this.props.navigation}/>
+        // Bottom thin line
+        <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
+        // Content
+        <View style={{flex: 1, marginTop: 5}}>
+          <View style={{flex: 0.1, flexDirection: 'row', margin: 5, justifyContent: 'space-between'}}>
+            <Text style={styles.itemLabel}>
+              {params.title}
+            </Text>
+            <Text style={styles.itemPrice}>
+              {`$${params.variants.edges[0].node.price}`}
+            </Text>
+          </View>
+          <View style={{flex: 0.9, flexDirection: 'column', margin: 5}}>
+            <Image
+              style={styles.imageStyle}
+              source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
+            <Text style={{marginTop: 10, fontSize: 16}}>{params.description}</Text>
+            <VariantSelector
+              variants={params.variants}
+              selectedVariant={this.props.selectedVariant}
+              handleOptionChange={this.handleVariantChange}/>
         </View>
-        <Image
-          style={styles.imageStyle}
-          source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
-        <VariantSelector
-          variants={params.variants}
-          selectedVariant={this.props.selectedVariant}
-          handleOptionChange={this.handleVariantChange}/>
-        <Button
-          onPress={this.handleAddToCart}
-          title={'ADD TO CART'}/>
-        <Button
-          onPress={this.handleAddToWishlist}
-          title={'ADD TO WISHLIST'}/>
       </View>
+      // Footer
+      // Bottom thin line
+      <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
+      // Footer
+      <View style={{flex: 0.2, backgroundColor: 'white', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{flex:1, flexDirection: 'row'}}>
+          <Button onPress={this.handleAddToCart} title={'ADD TO CART'}/>
+          <Button onPress={this.handleAddToWishlist} title={'ADD TO WISHLIST'}/>
+        </View>
+      </View>
+    </View>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { selectedVariant: state.shopify.selectedVariant,
-  cart: state.shopify.cart,
-  products: state.shopify.products, };
+  return {
+    selectedVariant: state.shopify.selectedVariant,
+    cart: state.shopify.cart,
+    products: state.shopify.products,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({
