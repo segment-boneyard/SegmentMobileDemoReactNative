@@ -4,6 +4,7 @@ import { Images } from '../Themes';
 import { connect } from 'react-redux';
 import ProductsGrid from '../Components/ProductsGrid';
 import NavigationHeader from '../Components/NavigationHeader';
+import AppLoadingSplash from '../Components/AppLoadingSplash';
 import ShopifyActions from '../Redux/ShopifyRedux';
 import { NavigationActions } from 'react-navigation';
 
@@ -25,12 +26,21 @@ export class LaunchScreen extends Component {
   }
 
   render () {
-    return (
-      <View style={styles.mainContainer}>
-        <NavigationHeader title={'SEGMENT STORE'} navigation={this.props.navigation}/>
-        <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
-      </View>
-    )
+    if(this.props.fetching) {
+      // Show the splash screen
+      return (
+        <View style={styles.mainContainer}>
+          <AppLoadingSplash />
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.mainContainer}>
+          <NavigationHeader title={'SEGMENT STORE'} navigation={this.props.navigation}/>
+          <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
+        </View>
+      );
+    }
   }
 }
 
