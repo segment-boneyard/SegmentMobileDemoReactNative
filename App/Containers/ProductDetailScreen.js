@@ -12,7 +12,7 @@ import ShopifyActions from '../Redux/ShopifyRedux';
 export class ProductDetailScreen extends Component {
 
   static navigationOptions = ({navigation}) => ({
-    title: 'PRODUCT',
+    header: null,
   });
 
   constructor(props) {
@@ -50,8 +50,24 @@ export class ProductDetailScreen extends Component {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
     const {params} = this.props.navigation.state;
     return (
-      <View style={styles.detailsContainer}>
-        <View style={styles.itemTitleBar}>
+      <View style={{flex: 1}}>
+        // Header
+        <View style={{height: 75, backgroundColor: 'white', flexDirection: 'row', alignItems: 'baseline'}}>
+          <View style={{flex: 0.1}}/>  // Back Button
+          <View style={{flex: 0.8}}>
+            <Text style={{fontSize: 20, textAlign: 'center', marginTop: 40}}>{"PRODUCT"}</Text>
+          </View>
+          <View style={{flex: 0.1}}>
+            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+              <Image style={{ height: 20, width: 20, marginRight: 20, marginTop: 40}} source={require('../Images/Icons/handbag-32.png')}/>
+            </TouchableOpacity>
+          </View>
+        </View>
+        // Bottom thin line
+        <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
+        // Content
+      <View style={{flex: 1, marginTop: 5}}>
+        <View style={{flex: 0.2, flexDirection: 'row', margin: 5}}>
           <Text style={styles.itemLabel}>
             {params.title}
           </Text>
@@ -59,20 +75,27 @@ export class ProductDetailScreen extends Component {
             {`$${params.variants.edges[0].node.price}`}
           </Text>
         </View>
-        <Image
-          style={styles.imageStyle}
-          source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
-        <VariantSelector
-          variants={params.variants}
-          selectedVariant={this.props.selectedVariant}
-          handleOptionChange={this.handleVariantChange}/>
-        <Button
-          onPress={this.handleAddToCart}
-          title={'ADD TO CART'}/>
-        <Button
-          onPress={this.handleAddToWishlist}
-          title={'ADD TO WISHLIST'}/>
+        <View style={{flex: 0.8, flexDirection: 'column', margin: 5}}>
+          <Image
+            style={styles.imageStyle}
+            source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
+          <VariantSelector
+            variants={params.variants}
+            selectedVariant={this.props.selectedVariant}
+            handleOptionChange={this.handleVariantChange}/>
       </View>
+      </View>
+      // Footer
+      // Bottom thin line
+      <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
+      // Footer
+      <View style={{flex: 0.2, backgroundColor: 'white', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{flex:1, flexDirection: 'row'}}>
+          <Button onPress={this.handleAddToCart} title={'ADD TO CART'}/>
+          <Button onPress={this.handleAddToWishlist} title={'ADD TO WISHLIST'}/>
+        </View>
+      </View>
+    </View>
     );
   }
 }

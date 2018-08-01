@@ -35,8 +35,8 @@ export default StyleSheet.create({
     height: Metrics.productList.imageSize / Metrics.productList.imageRatio / 2,
   },
   cartItemTitleBar: {
-    flex: 1,
-    flexDirection: 'column',
+    flex: 0.2,
+    flexDirection: 'row',
     margin: Metrics.smallMargin,
   },
   detailsContainer: {
@@ -64,7 +64,6 @@ export default StyleSheet.create({
     fontSize: 20,
   },
   imageStyle: {
-    flex: 1,
     resizeMode: 'contain',
     width: Metrics.productList.imageSize,
     height: Metrics.productList.imageSize / Metrics.productList.imageRatio,  // Hard-coded based off of sample Shopify images
