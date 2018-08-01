@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, Image, View, FlatList } from 'react-native';
+import { Text,
+         Image,
+         View,
+         FlatList,
+         Button } from 'react-native';
 import { Images } from '../Themes';
 import { connect } from 'react-redux';
 import ShopifyActions from '../Redux/ShopifyRedux';
@@ -32,6 +36,10 @@ class ShoppingBagScreen extends Component {
     );
   }
 
+  cartTotal = () => {
+
+  }
+
   renderCart = () => {
     if(this.props.cart.length === 0) {
       console.log('NOTHING IN CART.');
@@ -49,10 +57,22 @@ class ShoppingBagScreen extends Component {
     } else {
       console.log('CART: ', this.props.cart);
       return (
-        <FlatList
-          data={this.props.cart}
-          renderItem={this.renderItem}
-          keyExtractor={item => item.productId}/>
+        <View>
+          <FlatList
+            data={this.props.cart}
+            renderItem={this.renderItem}
+            keyExtractor={item => item.productId}/>
+          <View>
+            <View>
+              <Text>Your Cart Total:</Text>
+              <Text>{this.cartTotal()}</Text>
+            </View>
+            <View>
+              <Button onPress={this.props.clearCart} title={'CLEAR CART'}/>
+              <Button title={'CHECKOUT'}/>
+            </View>
+          </View>
+        </View>
       );
     }
   }

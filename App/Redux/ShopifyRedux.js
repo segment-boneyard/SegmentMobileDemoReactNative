@@ -66,7 +66,7 @@ export const removeFromCart = (state, action) => {
 }
 
 export const clearCart = (state) => {
-
+  return state.merge({ cart: Immutable([]) });
 }
 
 /* ------------- Hookup Reducers To Types ------------- */
