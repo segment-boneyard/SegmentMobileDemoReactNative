@@ -37,7 +37,11 @@ class ShoppingBagScreen extends Component {
   }
 
   cartTotal = () => {
-
+    let total = 0;
+    this.props.cart.map((item) => {
+      total = total + parseFloat(item.price);
+    });
+    return total;
   }
 
   renderCart = () => {
@@ -65,7 +69,7 @@ class ShoppingBagScreen extends Component {
           <View>
             <View>
               <Text>Your Cart Total:</Text>
-              <Text>{this.cartTotal()}</Text>
+              <Text>{`$${this.cartTotal()}`}</Text>
             </View>
             <View>
               <Button onPress={this.props.clearCart} title={'CLEAR CART'}/>
