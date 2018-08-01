@@ -46,6 +46,7 @@ export const fetchProducts = () => {
           node {
             id
             title
+            description
             options {
               id
               name

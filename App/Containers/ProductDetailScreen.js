@@ -58,7 +58,7 @@ export class ProductDetailScreen extends Component {
             <Text style={{fontSize: 20, textAlign: 'center', marginTop: 40}}>{"PRODUCT"}</Text>
           </View>
           <View style={{flex: 0.1}}>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
               <Image style={{ height: 20, width: 20, marginRight: 20, marginTop: 40}} source={require('../Images/Icons/handbag-32.png')}/>
             </TouchableOpacity>
           </View>
@@ -66,24 +66,25 @@ export class ProductDetailScreen extends Component {
         // Bottom thin line
         <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
         // Content
-      <View style={{flex: 1, marginTop: 5}}>
-        <View style={{flex: 0.1, flexDirection: 'row', margin: 5}}>
-          <Text style={styles.itemLabel}>
-            {params.title}
-          </Text>
-          <Text style={styles.itemPrice}>
-            {`$${params.variants.edges[0].node.price}`}
-          </Text>
+        <View style={{flex: 1, marginTop: 5}}>
+          <View style={{flex: 0.1, flexDirection: 'row', margin: 5, justifyContent: 'space-between'}}>
+            <Text style={styles.itemLabel}>
+              {params.title}
+            </Text>
+            <Text style={styles.itemPrice}>
+              {`$${params.variants.edges[0].node.price}`}
+            </Text>
+          </View>
+          <View style={{flex: 0.9, flexDirection: 'column', margin: 5}}>
+            <Image
+              style={styles.imageStyle}
+              source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
+            <Text style={{marginTop: 10, fontSize: 16}}>{params.description}</Text>
+            <VariantSelector
+              variants={params.variants}
+              selectedVariant={this.props.selectedVariant}
+              handleOptionChange={this.handleVariantChange}/>
         </View>
-        <View style={{flex: 0.9, flexDirection: 'column', margin: 5}}>
-          <Image
-            style={styles.imageStyle}
-            source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
-          <VariantSelector
-            variants={params.variants}
-            selectedVariant={this.props.selectedVariant}
-            handleOptionChange={this.handleVariantChange}/>
-      </View>
       </View>
       // Footer
       // Bottom thin line
