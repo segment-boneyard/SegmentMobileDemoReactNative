@@ -4,15 +4,12 @@ import { StyleSheet,
          Text,
          TouchableOpacity,
          Image } from 'react-native';
-import { Header } from 'react-navigation';
 
 const style = StyleSheet.create({
   headerContainer: {
     flex: 1,
+    width: '100%',
     flexDirection: 'row',
-    position: 'absolute',
-    left: 0,
-    top: 0,
     height: 80,
     marginTop: 20  // TODO:  This is an iOS only header
   },
@@ -28,13 +25,16 @@ const Images = {
 
 const NavigationHeader = props => {
   return (
-    <View
-      style={{
-        height: 56,
-        marginTop: 20
-      }}
-    >
-      <Header {...props} />
+    <View style={style.headerContainer}>
+      <TouchableOpacity onPress={() => navigation.navigate('ShoppingBagScreen')}>
+        <Image style={{
+          height: 32,
+          width: 32,
+          marginRight: 10,
+          marginTop: 5}}
+          source={require('../Images/Icons/cancel-cross-32.png')}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
