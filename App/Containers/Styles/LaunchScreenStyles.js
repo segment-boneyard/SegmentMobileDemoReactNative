@@ -35,8 +35,7 @@ export default StyleSheet.create({
     height: Metrics.productList.imageSize / Metrics.productList.imageRatio / 2,
   },
   cartItemTitleBar: {
-    flex: 0.2,
-    flexDirection: 'row',
+    flexDirection: 'column',
     margin: Metrics.smallMargin,
   },
   detailsContainer: {

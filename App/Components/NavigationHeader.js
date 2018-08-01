@@ -13,7 +13,7 @@ const style = StyleSheet.create({
     height: 80,
     marginTop: 20  // TODO:  This is an iOS only header
   },
-  button: {
+  buttonRight: {
     width: 32,
     height: 32,
   },
