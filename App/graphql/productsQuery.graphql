@@ -1,9 +1,0 @@
-#import "./productFragment.graphql"
-query shop {
- shop {
-  name
-  description
-  Products {
-    ...productFragment
-  }
-}
