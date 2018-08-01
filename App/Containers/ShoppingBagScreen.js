@@ -30,6 +30,7 @@ class ShoppingBagScreen extends Component {
           source={{uri: `${item.productImage}`}}/>
         <View style={styles.cartItemTitleBar}>
           <Text style={styles.itemLabel}>{item.title}</Text>
+          <Text style={styles.itemPrice}>{item.variant}</Text>
           <Text style={styles.itemPrice}>${item.price}</Text>
         </View>
       </View>
@@ -42,6 +43,10 @@ class ShoppingBagScreen extends Component {
       total = total + parseFloat(item.price);
     });
     return total;
+  }
+
+  checkout = () => {
+
   }
 
   renderCart = () => {
@@ -73,7 +78,7 @@ class ShoppingBagScreen extends Component {
             </View>
             <View>
               <Button onPress={this.props.clearCart} title={'CLEAR CART'}/>
-              <Button title={'CHECKOUT'}/>
+              <Button onPress={this.checkout} title={'CHECKOUT'}/>
             </View>
           </View>
         </View>
