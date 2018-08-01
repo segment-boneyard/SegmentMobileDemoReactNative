@@ -20,21 +20,21 @@ const style = StyleSheet.create({
 });
 
 const Images = {
-  bagButton: require('../Images/Icons/handbag-32.png'),
+  bagButtonSmall: require('../Images/Icons/handbag-32.png'),
 };
 
 const NavigationHeader = props => {
   return (
-    <View style={style.headerContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('ShoppingBagScreen')}>
-        <Image style={{
-          height: 32,
-          width: 32,
-          marginRight: 10,
-          marginTop: 5}}
-          source={require('../Images/Icons/cancel-cross-32.png')}
-        />
-      </TouchableOpacity>
+    <View style={{height: 75, backgroundColor: 'white', flexDirection: 'row', alignItems: 'baseline'}}>
+      <View style={{flex: 0.1}}/>  // Back Button
+      <View style={{flex: 0.8}}>
+        <Text style={{fontSize: 20, textAlign: 'center', marginTop: 40}}>{"PRODUCT"}</Text>
+      </View>
+      <View style={{flex: 0.1}}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
+          <Image style={{ height: 20, width: 20, marginRight: 20, marginTop: 40}} source={Images.bagButtonSmall}/>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

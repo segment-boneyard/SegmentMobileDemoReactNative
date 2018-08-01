@@ -7,6 +7,7 @@ import { Text,
 import { connect } from 'react-redux';
 import styles from './Styles/LaunchScreenStyles'
 import VariantSelector from '../Components/VariantSelector';
+import NavigationHeader from '../Components/NavigationHeader';
 import ShopifyActions from '../Redux/ShopifyRedux';
 
 export class ProductDetailScreen extends Component {
@@ -52,17 +53,7 @@ export class ProductDetailScreen extends Component {
     return (
       <View style={{flex: 1}}>
         // Header
-        <View style={{height: 75, backgroundColor: 'white', flexDirection: 'row', alignItems: 'baseline'}}>
-          <View style={{flex: 0.1}}/>  // Back Button
-          <View style={{flex: 0.8}}>
-            <Text style={{fontSize: 20, textAlign: 'center', marginTop: 40}}>{"PRODUCT"}</Text>
-          </View>
-          <View style={{flex: 0.1}}>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
-              <Image style={{ height: 20, width: 20, marginRight: 20, marginTop: 40}} source={require('../Images/Icons/handbag-32.png')}/>
-            </TouchableOpacity>
-          </View>
-        </View>
+        <NavigationHeader />
         // Bottom thin line
         <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
         // Content
