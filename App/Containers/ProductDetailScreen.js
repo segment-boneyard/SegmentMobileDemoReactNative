@@ -67,7 +67,7 @@ export class ProductDetailScreen extends Component {
         <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
         // Content
       <View style={{flex: 1, marginTop: 5}}>
-        <View style={{flex: 0.2, flexDirection: 'row', margin: 5}}>
+        <View style={{flex: 0.1, flexDirection: 'row', margin: 5}}>
           <Text style={styles.itemLabel}>
             {params.title}
           </Text>
@@ -75,7 +75,7 @@ export class ProductDetailScreen extends Component {
             {`$${params.variants.edges[0].node.price}`}
           </Text>
         </View>
-        <View style={{flex: 0.8, flexDirection: 'column', margin: 5}}>
+        <View style={{flex: 0.9, flexDirection: 'column', margin: 5}}>
           <Image
             style={styles.imageStyle}
             source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
