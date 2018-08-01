@@ -53,7 +53,7 @@ export class ProductDetailScreen extends Component {
     return (
       <View style={{flex: 1}}>
         // Header
-        <NavigationHeader />
+        <NavigationHeader title={'PRODUCT'} navigation={this.props.navigation}/>
         // Bottom thin line
         <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
         // Content
@@ -93,9 +93,11 @@ export class ProductDetailScreen extends Component {
 }
 
 const mapStateToProps = state => {
-  return { selectedVariant: state.shopify.selectedVariant,
-  cart: state.shopify.cart,
-  products: state.shopify.products, };
+  return {
+    selectedVariant: state.shopify.selectedVariant,
+    cart: state.shopify.cart,
+    products: state.shopify.products,
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

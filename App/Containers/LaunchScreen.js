@@ -3,6 +3,7 @@ import { ScrollView, Text, Image, View } from 'react-native';
 import { Images } from '../Themes';
 import { connect } from 'react-redux';
 import ProductsGrid from '../Components/ProductsGrid';
+import NavigationHeader from '../Components/NavigationHeader';
 import ShopifyActions from '../Redux/ShopifyRedux';
 import { NavigationActions } from 'react-navigation';
 
@@ -12,7 +13,7 @@ import styles from './Styles/LaunchScreenStyles'
 export class LaunchScreen extends Component {
 
   static navigationOptions = {
-    title: 'SEGMENT STORE',
+    header: null,
   };
 
   detailScreen = (item) => {
@@ -26,6 +27,7 @@ export class LaunchScreen extends Component {
   render () {
     return (
       <View style={styles.mainContainer}>
+        <NavigationHeader title={'SEGMENT STORE'} navigation={this.props.navigation}/>
         <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
       </View>
     )
