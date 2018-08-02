@@ -20,7 +20,7 @@ const style = StyleSheet.create({
 });
 
 const Images = {
-  bagButtonSmall: require('../Images/Icons/handbag-32.png'),
+  bagButtonSmall: require('../Images/Icons/shopping-bag-512.png'),
 };
 
 class NavigationHeader extends Component {
@@ -38,7 +38,7 @@ class NavigationHeader extends Component {
         </View>
         <View style={{flex: 0.1}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
-            <Image style={{ height: 20, width: 20, marginRight: 20, marginTop: 40}} source={Images.bagButtonSmall}/>
+            <Image style={{ height: 30, width: 30, marginRight: 30, marginTop: 30}} source={Images.bagButtonSmall}/>
           </TouchableOpacity>
         </View>
       </View>
