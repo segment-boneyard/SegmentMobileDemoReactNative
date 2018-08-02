@@ -23,9 +23,10 @@ class RootContainer extends Component {
   }
 
   render () {
+    // This sets the bar icons to black to offset it from our white bckgnd
     return (
       <View style={styles.applicationView}>
-        <StatusBar barStyle='light-content' />
+        <StatusBar barStyle='dark-content' />
         <ReduxNavigation />
       </View>
     )
