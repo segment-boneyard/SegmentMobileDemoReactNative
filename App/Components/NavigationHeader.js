@@ -38,7 +38,7 @@ class NavigationHeader extends Component {
         </View>
         <View style={{flex: 0.1}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
-            <Image style={{ height: 25, width: 35, marginRight: 35, marginTop: 30}} source={Images.bagButtonSmall}/>
+            <Image style={{ height: 30, width: 30}} source={Images.bagButtonSmall}/>
           </TouchableOpacity>
         </View>
       </View>
