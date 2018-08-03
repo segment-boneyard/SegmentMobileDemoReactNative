@@ -4,7 +4,8 @@ import { Text,
          View,
          FlatList,
          Button,
-         TouchableOpacity } from 'react-native';
+         TouchableOpacity,
+         Alert } from 'react-native';
 import { Images } from '../Themes';
 import { connect } from 'react-redux';
 import ShopifyActions from '../Redux/ShopifyRedux';
@@ -52,6 +53,22 @@ class ShoppingBagScreen extends Component {
 
   }
 
+  clearCartAndNavigate = () => {
+    this.props.clearCart();
+    this.props.navigation.navigate('LaunchScreen');
+  }
+
+  confirmClearCart = () => {
+    Alert.alert(
+      'Confirm',
+      'Are you sure you want to clear your cart?',
+      [
+        { text: 'Yes', onPress: () => { this.clearCartAndNavigate() } },
+        { text: 'No', onPress: () => {}, style: 'cancel' },
+      ],
+    );
+  }
+
   renderCartContent = () => {
     if(this.props.cart.length === 0) {
       return (
@@ -78,7 +95,7 @@ class ShoppingBagScreen extends Component {
             <Text style={{marginTop: 15, fontSize: 20}}>{`$${this.cartTotal()}`}</Text>
           </View>
           <View style={{flex:1, flexDirection: 'row'}}>
-            <FullButton onPress={this.props.clearCart} text={'CLEAR CART'}/>
+            <FullButton onPress={this.confirmClearCart} text={'CLEAR CART'}/>
             <FullButton onPress={this.checkout} text={'CHECKOUT'}/>
           </View>
         </View>
