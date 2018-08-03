@@ -41,12 +41,12 @@ class NavigationHeader extends Component {
 
   render () {
     return (
-      <View style={{height: 90, backgroundColor: 'white', flexDirection: 'row'}}>
+      <View style={{height: 90, backgroundColor: 'white', flexDirection: 'row', borderBottomWidth: 1, borderColor: '#43464b'}}>
         <View style={{flex: 0.2}}/>  // Back Button
-        <View style={{flex: 0.6, marginTop: 45}}>
+        <View style={{flex: 0.6, marginTop: 55}}>
           <Text style={{fontSize: 20, textAlign: 'center'}}>{this.props.title}</Text>
         </View>
-        <View style={{flex: 0.2, marginTop: 40, marginLeft: 1, flexDirection: 'row', justifyContent: 'center'}}>
+        <View style={{flex: 0.2, marginTop: 45, marginLeft: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
             <ImageBackground style={{ height: 30, width: 30}} source={Images.bagButtonSmall}>
               {this.cartItems()}

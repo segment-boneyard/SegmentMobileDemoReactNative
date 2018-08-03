@@ -1,6 +1,6 @@
 import { StyleSheet,
          Dimensions } from 'react-native';
-import { Metrics, ApplicationStyles } from '../../Themes/';
+import { Metrics, ApplicationStyles, Colors } from '../../Themes/';
 
 
 export default StyleSheet.create({
@@ -16,6 +16,10 @@ export default StyleSheet.create({
   },
   centered: {
     alignItems: 'center'
+  },
+  productList: {
+    flex: 1,
+    backgroundColor: Colors.ricePaper,
   },
   itemContainer: {
     width: Metrics.productList.imageSize,

@@ -3,6 +3,7 @@ import { Button,
          ActionSheetIOS,
          TouchableOpacity,
          Text } from 'react-native';
+import FullButton from './FullButton';
 
 export default class VariantSelector extends Component {
 
@@ -10,7 +11,7 @@ export default class VariantSelector extends Component {
     let sizeLabels = [];
     sizeLabels.push('CANCEL');
     this.props.variants.edges.map(
-      (variant) => sizeLabels.push(variant.node.title));
+      (variant) => sizeLabels.push(variant.node.title.toUpperCase()));
     ActionSheetIOS.showActionSheetWithOptions({
       options: sizeLabels,
       cancelButtonIndex: 0,
@@ -30,9 +31,10 @@ export default class VariantSelector extends Component {
 
   render() {
     return (
-      <TouchableOpacity style={{marginTop: 20}} onPress={this.showActionSheet}>
-        <Text style={{fontSize: 20, textAlign: 'center'}}>{`${this.sizeSelectorLabel()}`}</Text>
-      </TouchableOpacity>
+      <FullButton
+        style={{marginTop: 20}}
+        onPress={this.showActionSheet}
+        text={`${this.sizeSelectorLabel()}`}/>
     );
   }
 }

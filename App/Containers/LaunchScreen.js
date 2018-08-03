@@ -28,13 +28,13 @@ export class LaunchScreen extends Component {
     if(this.props.fetching) {
       // Show the splash screen
       return (
-        <View style={styles.mainContainer}>
+        <View style={styles.productList}>
           <AppLoadingSplash />
         </View>
       );
     } else {
       return (
-        <View style={styles.mainContainer}>
+        <View style={styles.productList}>
           <NavigationHeader title={'FLASH GEAR'} navigation={this.props.navigation}/>
           <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
         </View>

@@ -9,6 +9,7 @@ import styles from './Styles/LaunchScreenStyles'
 import VariantSelector from '../Components/VariantSelector';
 import NavigationHeader from '../Components/NavigationHeader';
 import ShopifyActions from '../Redux/ShopifyRedux';
+import FullButton from '../Components/FullButton';
 
 export class ProductDetailScreen extends Component {
 
@@ -51,13 +52,11 @@ export class ProductDetailScreen extends Component {
     // TODO: This is kind of hacky and unsafe but for now...will have to do...
     const {params} = this.props.navigation.state;
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'rgba(255,255,255, 0.75)'}}>
         // Header
         <NavigationHeader title={'PRODUCT'} navigation={this.props.navigation}/>
-        // Bottom thin line
-        <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
         // Content
-        <View style={{flex: 1, marginTop: 5}}>
+        <View style={{flex: 1, marginTop: 10}}>
           <View style={{flex: 0.1, flexDirection: 'row', margin: 5, justifyContent: 'space-between'}}>
             <Text style={styles.itemLabel}>
               {params.title}
@@ -66,25 +65,19 @@ export class ProductDetailScreen extends Component {
               {`$${params.variants.edges[0].node.price}`}
             </Text>
           </View>
-          <View style={{flex: 0.9, flexDirection: 'column', margin: 5}}>
+          <View style={{flex: 0.9, flexDirection: 'column', marginLeft: 5, marginRight: 5}}>
             <Image
               style={styles.imageStyle}
               source={{uri: `${params.variants.edges[0].node.image.src}`}}/>
-            <Text style={{marginTop: 10, fontSize: 16}}>{params.description}</Text>
+            <Text style={{marginTop: 20, fontSize: 18, margin: 2}}>{params.description}</Text>
             <VariantSelector
               variants={params.variants}
               selectedVariant={this.props.selectedVariant}
               handleOptionChange={this.handleVariantChange}/>
-        </View>
-      </View>
-      // Footer
-      // Bottom thin line
-      <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
-      // Footer
-      <View style={{flex: 0.2, backgroundColor: 'white', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-        <View style={{flex:1, flexDirection: 'row'}}>
-          <Button onPress={this.handleAddToCart} title={'ADD TO CART'}/>
-          <Button onPress={this.handleAddToWishlist} title={'ADD TO WISHLIST'}/>
+            <FullButton
+              style={{margin: 5}}
+              onPress={this.handleAddToCart}
+              text={'ADD TO CART'}/>
         </View>
       </View>
     </View>
