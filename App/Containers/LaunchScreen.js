@@ -21,7 +21,6 @@ export class LaunchScreen extends Component {
     // This passes params via navigation, which is a kludge. Read about it here:
     // https://reactnavigation.org/docs/en/params.html
     // TODO: Consider using https://github.com/vonovak/react-navigation-props-mapper
-
     this.props.navigation.navigate('ProductDetailScreen', { ...item });
   }
 
@@ -29,14 +28,14 @@ export class LaunchScreen extends Component {
     if(this.props.fetching) {
       // Show the splash screen
       return (
-        <View style={styles.mainContainer}>
+        <View style={styles.productList}>
           <AppLoadingSplash />
         </View>
       );
     } else {
       return (
-        <View style={styles.mainContainer}>
-          <NavigationHeader title={'SEGMENT STORE'} navigation={this.props.navigation}/>
+        <View style={styles.productList}>
+          <NavigationHeader title={'FLASH GEAR'} navigation={this.props.navigation}/>
           <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
         </View>
       );
