@@ -23,6 +23,7 @@ const style = StyleSheet.create({
 
 const Images = {
   bagButtonSmall: require('../Images/Icons/shopping-bag-512.png'),
+  cancelButtonSmall: require('../Images/Icons/cancel-32.png'),
 };
 
 class NavigationHeader extends Component {
@@ -39,6 +40,24 @@ class NavigationHeader extends Component {
     }
   }
 
+  modalOrNot = () => {
+    if(this.props.modal) {
+      return (
+        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+          <Image style={{ height: 30, width: 30}} source={Images.cancelButtonSmall}/>
+        </TouchableOpacity>
+      );
+    } else {
+      return (
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
+          <ImageBackground style={{ height: 30, width: 30}} source={Images.bagButtonSmall}>
+            {this.cartItems()}
+          </ImageBackground>
+        </TouchableOpacity>
+      );
+    }
+  }
+
   render () {
     return (
       <View style={{height: 90, backgroundColor: 'white', flexDirection: 'row', borderBottomWidth: 1, borderColor: '#43464b'}}>
@@ -47,11 +66,7 @@ class NavigationHeader extends Component {
           <Text style={{fontSize: 20, textAlign: 'center'}}>{this.props.title}</Text>
         </View>
         <View style={{flex: 0.2, marginTop: 45, marginLeft: 1, flexDirection: 'row', justifyContent: 'center'}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
-            <ImageBackground style={{ height: 30, width: 30}} source={Images.bagButtonSmall}>
-              {this.cartItems()}
-            </ImageBackground>
-          </TouchableOpacity>
+          {this.modalOrNot()}
         </View>
       </View>
     );

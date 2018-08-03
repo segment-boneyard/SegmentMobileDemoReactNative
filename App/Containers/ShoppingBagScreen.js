@@ -55,11 +55,10 @@ class ShoppingBagScreen extends Component {
   renderCartContent = () => {
     if(this.props.cart.length === 0) {
       return (
-        <View style={{flex: 1, backgroundColor: 'white', borderWidth: 15}}>
+        <View style={{flex: 1, backgroundColor: 'white', margin: 15}}>
           <View style={{flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
             <Text style={{fontSize: 20, textAlign: 'center', marginBottom: 30}}>{"Unfortunately your shopping bag is empty."}</Text>
-            <Image style={{ height: 128, width: 128, }} source={require('../Images/Icons/handbag-128.png')}/>
-            <Text style={{marginTop: 30, fontSize: 20}}>{"Check out what's new?"}</Text>
+            <Image style={{ height: 128, width: 128, }} source={require('../Images/Icons/shopping-bag-512.png')}/>
           </View>
         </View>
       );
@@ -92,19 +91,7 @@ class ShoppingBagScreen extends Component {
     return (
       <View style={{flex: 1}}>
         // Header
-        <View style={{height: 75, backgroundColor: 'white', flexDirection: 'row', alignItems: 'baseline'}}>
-          <View style={{flex: 0.1}}/>  // Back Button
-          <View style={{flex: 0.8}}>
-            <Text style={{fontSize: 20, textAlign: 'center', marginTop: 40}}>{"YOUR BAG"}</Text>
-          </View>
-          <View style={{flex: 0.1}}>
-            <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-              <Image style={{ height: 20, width: 20, marginRight: 20, marginTop: 40}} source={require('../Images/Icons/cancel-cross-32.png')}/>
-            </TouchableOpacity>
-          </View>
-        </View>
-        // Bottom thin line
-        <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
+        <NavigationHeader title={'YOUR BAG'} navigation={this.props.navigation} modal={true}/>
         // Content
         {this.renderCartContent()}
       </View>
