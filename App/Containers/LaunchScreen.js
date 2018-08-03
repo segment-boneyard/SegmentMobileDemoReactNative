@@ -21,7 +21,6 @@ export class LaunchScreen extends Component {
     // This passes params via navigation, which is a kludge. Read about it here:
     // https://reactnavigation.org/docs/en/params.html
     // TODO: Consider using https://github.com/vonovak/react-navigation-props-mapper
-
     this.props.navigation.navigate('ProductDetailScreen', { ...item });
   }
 

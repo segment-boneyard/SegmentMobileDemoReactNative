@@ -4,7 +4,8 @@ import { StyleSheet,
          Text,
          TouchableOpacity,
          Image,
-         ImageBackground} from 'react-native';
+         ImageBackground } from 'react-native';
+import { connect } from 'react-redux';
 
 const style = StyleSheet.create({
   headerContainer: {
@@ -30,9 +31,9 @@ class NavigationHeader extends Component {
     super(props);
   }
 
-  cartItems = () {
-    if(this.props.itemCount > 0) {
-      return (<Text style={{textAlign: 'center', alignSelf: 'center', top: 10}}>{`${this.props.itemCount}`}</Text>);
+  cartItems = () => {
+    if(this.props.cart.length > 0) {
+      return (<Text style={{textAlign: 'center', alignSelf: 'center', top: 10}}>{`${this.props.cart.length}`}</Text>);
     } else {
       return (<Text></Text>);
     }
@@ -48,7 +49,7 @@ class NavigationHeader extends Component {
         <View style={{flex: 0.2, marginTop: 40, marginLeft: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
             <ImageBackground style={{ height: 30, width: 30}} source={Images.bagButtonSmall}>
-              {this.carItems()}
+              {this.cartItems()}
             </ImageBackground>
           </TouchableOpacity>
         </View>
@@ -57,4 +58,8 @@ class NavigationHeader extends Component {
   }
 };
 
-export default NavigationHeader;
+const mapStateToProps = state => ({
+  cart: state.shopify.cart,
+});
+
+export default connect(mapStateToProps)(NavigationHeader);
