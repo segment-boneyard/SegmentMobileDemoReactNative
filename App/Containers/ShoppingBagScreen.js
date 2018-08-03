@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import ShopifyActions from '../Redux/ShopifyRedux';
 import { NavigationActions } from 'react-navigation';
 import NavigationHeader from '../Components/NavigationHeader';
+import FullButton from '../Components/FullButton';
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -78,8 +79,8 @@ class ShoppingBagScreen extends Component {
             <Text style={{marginTop: 15, fontSize: 20}}>{`$${this.cartTotal()}`}</Text>
           </View>
           <View style={{flex:1, flexDirection: 'row'}}>
-            <Button onPress={this.props.clearCart} title={'CLEAR CART'}/>
-            <Button onPress={this.checkout} title={'CHECKOUT'}/>
+            <FullButton onPress={this.props.clearCart} text={'CLEAR CART'}/>
+            <FullButton onPress={this.checkout} text={'CHECKOUT'}/>
           </View>
         </View>
       </View>
