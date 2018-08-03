@@ -3,15 +3,16 @@ import { StyleSheet,
          View,
          Text,
          TouchableOpacity,
-         Image } from 'react-native';
+         Image,
+         ImageBackground} from 'react-native';
 
 const style = StyleSheet.create({
   headerContainer: {
     flex: 1,
     width: '100%',
     flexDirection: 'row',
-    height: 80,
-    marginTop: 20  // TODO:  This is an iOS only header
+    height: 125,
+    marginTop: 40  // TODO:  This is an iOS only header
   },
   buttonRight: {
     width: 32,
@@ -29,16 +30,26 @@ class NavigationHeader extends Component {
     super(props);
   }
 
+  cartItems = () {
+    if(this.props.itemCount > 0) {
+      return (<Text style={{textAlign: 'center', alignSelf: 'center', top: 10}}>{`${this.props.itemCount}`}</Text>);
+    } else {
+      return (<Text></Text>);
+    }
+  }
+
   render () {
     return (
-      <View style={{height: 80, backgroundColor: 'blue', flexDirection: 'row'}}>
+      <View style={{height: 90, backgroundColor: 'white', flexDirection: 'row'}}>
         <View style={{flex: 0.2}}/>  // Back Button
-        <View style={{flex: 0.6}}>
-          <Text style={{fontSize: 20, textAlign: 'center', marginTop: 40}}>{this.props.title}</Text>
+        <View style={{flex: 0.6, marginTop: 45}}>
+          <Text style={{fontSize: 20, textAlign: 'center'}}>{this.props.title}</Text>
         </View>
-        <View style={{flex: 0.2, backgroundColor: 'red', marginTop: 35, marginLeft: 5}}>
+        <View style={{flex: 0.2, marginTop: 40, marginLeft: 1, flexDirection: 'row', justifyContent: 'center'}}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
-            <Image style={{ height: 30, width: 30}} source={Images.bagButtonSmall}/>
+            <ImageBackground style={{ height: 30, width: 30}} source={Images.bagButtonSmall}>
+              {this.carItems()}
+            </ImageBackground>
           </TouchableOpacity>
         </View>
       </View>

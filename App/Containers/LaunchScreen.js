@@ -36,7 +36,7 @@ export class LaunchScreen extends Component {
     } else {
       return (
         <View style={styles.mainContainer}>
-          <NavigationHeader title={'SEGMENT STORE'} navigation={this.props.navigation}/>
+          <NavigationHeader title={'FLASH GEAR'} navigation={this.props.navigation}/>
           <ProductsGrid products={this.props.products} onPressItem={this.detailScreen}/>
         </View>
       );
