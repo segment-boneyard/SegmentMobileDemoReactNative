@@ -94,7 +94,7 @@ class ShoppingBagScreen extends Component {
             <Text style={{marginTop: 15, fontSize: 20}}>Your Cart Total:</Text>
             <Text style={{marginTop: 15, fontSize: 20}}>{`$${this.cartTotal()}`}</Text>
           </View>
-          <View style={{flex:.35, flexDirection: 'row'}}>
+          <View style={{flex:.35, flexDirection: 'row', alignItems: 'center'}}>
             <FullButton onPress={this.confirmClearCart} text={'CLEAR CART'}/>
             <FullButton onPress={this.checkout} text={'CHECKOUT'}/>
           </View>
