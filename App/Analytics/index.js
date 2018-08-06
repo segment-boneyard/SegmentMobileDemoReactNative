@@ -30,10 +30,12 @@ export function productAdded(variant) {
 export function productRemoved(variant) {
 }
 
-export function checkoutStarted() {
+export function checkoutStarted(cart) {
+  Analytics.track(TRACK_CHECKOUT_STARTED, { products: { ...cart } });
 }
 
-export function checkoutCompleted() {
+export function checkoutCompleted(cart) {
+  Analytics.track(TRACK_CHECKOUT_COMPLETED, { products: { ...cart} });
 }
 
 export function cartViewed(cart) {
