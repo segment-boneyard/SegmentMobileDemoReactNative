@@ -50,7 +50,8 @@ class ShoppingBagScreen extends Component {
   }
 
   checkout = () => {
-
+    // TODO: Fire checkout started event here
+    this.props.navigation.navigate('CheckoutScreen');
   }
 
   clearCartAndNavigate = () => {
@@ -88,13 +89,13 @@ class ShoppingBagScreen extends Component {
         // Bottom thin line
         <View style={{ backgroundColor: '#43464b', height: 2, width: '100%' }}/>
         // Footer
-        <View style={{flex: 0.2, backgroundColor: 'white', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{flex: 0.3, backgroundColor: 'white', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start'}}>
           // Bottom thin line
-          <View style={{flex:1, flexDirection: 'row'}}>
+          <View style={{flex:.3, flexDirection: 'row'}}>
             <Text style={{marginTop: 15, fontSize: 20}}>Your Cart Total:</Text>
             <Text style={{marginTop: 15, fontSize: 20}}>{`$${this.cartTotal()}`}</Text>
           </View>
-          <View style={{flex:1, flexDirection: 'row'}}>
+          <View style={{flex:.35, flexDirection: 'row', alignItems: 'center'}}>
             <FullButton onPress={this.confirmClearCart} text={'CLEAR CART'}/>
             <FullButton onPress={this.checkout} text={'CHECKOUT'}/>
           </View>
