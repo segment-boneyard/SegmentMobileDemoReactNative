@@ -16,9 +16,8 @@ const TRACK_CHECKOUT_COMPLETED = 'Checkout Completed';
 const TRACK_CART_VIEWED = 'Cart Viewed';
 const TRACK_PRODUCT_LIST_VIEWED = 'Product List Viewed';
 
-export function identify(id, name, email) {
-  Analytics.track(id, {
-    name: name,
+export function identify(id, email) {
+  Analytics.identify(id, {
     email: email,
   });
 }
@@ -28,6 +27,7 @@ export function productAdded(variant) {
 }
 
 export function productRemoved(variant) {
+  Analytics.track(TRACK_PRODUCT_REMOVED, { ...variant });
 }
 
 export function checkoutStarted(cart) {

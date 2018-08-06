@@ -14,6 +14,7 @@ import ShopifyActions from '../Redux/ShopifyRedux';
 import { NavigationActions } from 'react-navigation';
 import NavigationHeader from '../Components/NavigationHeader';
 import FullButton from '../Components/FullButton';
+import * as Segment from '../Analytics';
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -64,7 +65,10 @@ class CheckoutScreen extends Component {
   }
 
   checkoutCompleted = () => {
-    // TODO: Fire checkout completed event here
+    if(this.text !== '') {
+      Segment.identify(this.text, this.text);  // TODO: Kludge - need to find a way to generate an ID - maybe store it in redux cache
+    }
+    Segment.checkoutCompleted(this.props.cart);
     this.props.clearCart();
     this.props.navigation.navigate('LaunchScreen');
   }

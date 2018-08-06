@@ -6,6 +6,7 @@ import { StyleSheet,
          Image,
          ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
+import * as Segment from '../Analytics';
 
 const style = StyleSheet.create({
   headerContainer: {
@@ -49,7 +50,9 @@ class NavigationHeader extends Component {
       );
     } else {
       return (
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('ShoppingBagScreen')}>
+        <TouchableOpacity onPress={() => {
+            Segment.cartViewed(this.props.cart);
+            this.props.navigation.navigate('ShoppingBagScreen');} }>
           <ImageBackground style={{ height: 30, width: 30}} source={Images.bagButtonSmall}>
             {this.cartItems()}
           </ImageBackground>
