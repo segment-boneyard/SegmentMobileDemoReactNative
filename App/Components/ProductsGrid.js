@@ -6,6 +6,7 @@ import { FlatList,
          TouchableOpacity } from 'react-native';
 import styles from '../Containers/Styles/LaunchScreenStyles';
 import { Metrics } from '../Themes';
+import * as Segment from '../Analytics';
 
 export default class ProductsGrid extends Component {
   renderItem = (item) => {
@@ -27,6 +28,7 @@ export default class ProductsGrid extends Component {
   }
 
   render() {
+    if(this.props.products) Segment.productListViewed(this.props.products);
     return (
       <FlatList
         data={this.props.products}

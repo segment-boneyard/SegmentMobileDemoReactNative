@@ -29,7 +29,6 @@ const screenTracking = ({ getState }) => next => (action) => {
   const nextScreen = getCurrentRouteName(getState().nav);
   if (nextScreen !== currentScreen) {
     try {
-      //console.log(`NAVIGATING ${currentScreen} to ${nextScreen}`);
       Analytics.screen(`${nextScreen}`);
     } catch (e) {
       //console.log(e);
