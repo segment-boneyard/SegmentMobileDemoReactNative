@@ -12,6 +12,7 @@ import ShopifyActions from '../Redux/ShopifyRedux';
 import { NavigationActions } from 'react-navigation';
 import NavigationHeader from '../Components/NavigationHeader';
 import FullButton from '../Components/FullButton';
+import * as Segment from '../Analytics';
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
@@ -51,6 +52,7 @@ class ShoppingBagScreen extends Component {
 
   checkout = () => {
     // TODO: Fire checkout started event here
+    Segment.checkoutStarted(this.props.cart);
     this.props.navigation.navigate('CheckoutScreen');
   }
 

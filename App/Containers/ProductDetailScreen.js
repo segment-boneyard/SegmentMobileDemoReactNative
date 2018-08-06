@@ -10,6 +10,7 @@ import VariantSelector from '../Components/VariantSelector';
 import NavigationHeader from '../Components/NavigationHeader';
 import ShopifyActions from '../Redux/ShopifyRedux';
 import FullButton from '../Components/FullButton';
+import * as Segment from '../Analytics';
 
 export class ProductDetailScreen extends Component {
 
@@ -37,6 +38,7 @@ export class ProductDetailScreen extends Component {
 
   handleAddToCart = () => {
     if(this.currentVariant.variant) {
+      Segment.productAdded(this.currentVariant);
       this.props.addToCart(this.currentVariant);
     }
   }
