@@ -60,7 +60,7 @@
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
 {
   [[SEGAnalytics sharedAnalytics] receivedRemoteNotification:userInfo];
-  NSLog(@"**********************   GOT PUSH ************************");
+  NSLog(@"********************** GOT PUSH ************************");
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
@@ -69,18 +69,26 @@
   }
   [[SEGAnalytics sharedAnalytics] receivedRemoteNotification:userInfo];
   //completionHandler(UIBackgroundFetchResultNoData);
-  NSLog(@"**********************   GOT PUSH ************************");
+  NSLog(@"********************** GOT PUSH ************************");
   [RCTPushNotificationManager didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
+  NSLog(@"********************** REGISTERED FOR PUSH ************************");
   [[SEGAnalytics sharedAnalytics] registeredForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
   // register to receive notifications
   [application registerForRemoteNotifications];
+}
+
+// Required for the registrationError event.
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+  NSLog(@"********************** PUSH REGISTRATION FAILED ************************");
+  [RCTPushNotificationManager didFailToRegisterForRemoteNotificationsWithError:error];
 }
 
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())completionHandler

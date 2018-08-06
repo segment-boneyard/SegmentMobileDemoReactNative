@@ -16,6 +16,13 @@ class RootContainer extends Component {
     }
 
     PushNotificationIOS.addEventListener('notification', (notification) => {
+
+
+      // TODO:  Handle all the notification cases we could see, esp when the app
+      // actually opens - a cool case would be to direct customers to a specific
+      // product listing
+
+
       console.log('*********************  NEW NOTIFICATION *********************', notification);
       alert(notification._alert.body);
     });
