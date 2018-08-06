@@ -48,6 +48,7 @@
 		769EC8B357F04867A5D704E5 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3534CE9CD29E4BDCA2495607 /* Entypo.ttf */; };
 		7881EE7D210B9DA7002E319B /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7881EE79210B8513002E319B /* libRCTPushNotification.a */; };
 		7899BAFEFEAA4CB28FFC72EA /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15BEA1FBF4E4A8C9B2B28C2 /* MaterialCommunityIcons.ttf */; };
+		78C6526D2118E78D0099768E /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6526C2118E78D0099768E /* PassKit.framework */; };
 		7E9BEC0772CF45449EB089BD /* libRNI18n-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CBBD44DC134644E59A6E1664 /* libRNI18n-tvOS.a */; };
 		81D5F656AF8840FA8AF9D487 /* RNI18nTests.xctest in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB0C463484C42D7B724F30B /* RNI18nTests.xctest */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -428,6 +429,7 @@
 		7881EE72210A556A002E319B /* SegmentMobileDemoReactNative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SegmentMobileDemoReactNative.entitlements; path = SegmentMobileDemoReactNative/SegmentMobileDemoReactNative.entitlements; sourceTree = "<group>"; };
 		7881EE73210B8512002E319B /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		78C6526C2118E78D0099768E /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9FB3B810522176E56666753F /* libPods-SegmentMobileDemoReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SegmentMobileDemoReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC76BA73F09345D59BB4D385 /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
+				78C6526D2118E78D0099768E /* PassKit.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
@@ -628,6 +631,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78C6526C2118E78D0099768E /* PassKit.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				9FB3B810522176E56666753F /* libPods-SegmentMobileDemoReactNative.a */,
 				0C42E4FEFAA8C4E62468FE28 /* libPods-SegmentMobileDemoReactNativeTests.a */,
@@ -908,6 +912,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
 								enabled = 1;
 							};
 						};
@@ -1742,7 +1749,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = ENLA8E7Z4L;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
