@@ -7,6 +7,7 @@ import { TouchableOpacity, Text, Image } from 'react-native';
 import LaunchScreen from '../Containers/LaunchScreen';
 import ProductDetailScreen from '../Containers/ProductDetailScreen';
 import ShoppingBagScreen from '../Containers/ShoppingBagScreen';
+import CheckoutScreen from '../Containers/CheckoutScreen';
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator(
@@ -19,7 +20,10 @@ const PrimaryNav = StackNavigator(
     },
     ShoppingBagScreen: {
       screen: ShoppingBagScreen
-    }
+    },
+    CheckoutScreen: {
+      screen: CheckoutScreen
+    },
   }, {
     // Default config for all screens,
     header: 'float',

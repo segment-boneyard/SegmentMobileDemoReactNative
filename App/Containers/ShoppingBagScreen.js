@@ -50,7 +50,8 @@ class ShoppingBagScreen extends Component {
   }
 
   checkout = () => {
-
+    // TODO: Fire checkout started event here
+    this.props.navigation.navigate('CheckoutScreen');
   }
 
   clearCartAndNavigate = () => {
