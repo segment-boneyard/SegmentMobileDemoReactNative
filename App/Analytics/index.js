@@ -17,7 +17,7 @@ const TRACK_CART_VIEWED = 'Cart Viewed';
 const TRACK_PRODUCT_LIST_VIEWED = 'Product List Viewed';
 
 export function identify(id, email) {
-  Analytics.track(id, {
+  Analytics.identify(id, {
     email: email,
   });
 }
