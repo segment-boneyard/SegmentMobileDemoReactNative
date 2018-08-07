@@ -20,32 +20,40 @@ export function identify(id, email) {
   Analytics.identify(id, {
     email: email,
   });
+  Analytics.flush();
 }
 
 export function productAdded(variant) {
   Analytics.track(TRACK_PRODUCT_ADDED, { ...variant });
+  Analytics.flush();
 }
 
 export function productRemoved(variant) {
   Analytics.track(TRACK_PRODUCT_REMOVED, { ...variant });
+  Analytics.flush();
 }
 
 export function checkoutStarted(cart) {
   Analytics.track(TRACK_CHECKOUT_STARTED, { products: { ...cart } });
+  Analytics.flush();
 }
 
 export function checkoutCompleted(cart) {
   Analytics.track(TRACK_CHECKOUT_COMPLETED, { products: { ...cart} });
+  Analytics.flush();
 }
 
 export function cartViewed(cart) {
   Analytics.track(TRACK_CART_VIEWED, { products: { ...cart } });
+  Analytics.flush();
 }
 
 export function productViewed(variant) {
   Analytics.track(TRACK_PRODUCT_VIEWED, { ...variant });
+  Analytics.flush();
 }
 
 export function productListViewed(productList) {
   Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: productList } );
+  Analytics.flush();
 }
