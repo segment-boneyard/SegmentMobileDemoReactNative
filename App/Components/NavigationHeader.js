@@ -6,6 +6,7 @@ import { StyleSheet,
          Image,
          ImageBackground } from 'react-native';
 import { connect } from 'react-redux';
+import { isIphoneX } from '../Themes/Metrics';
 import * as Segment from '../Analytics';
 
 const style = StyleSheet.create({
@@ -25,6 +26,7 @@ const style = StyleSheet.create({
 const Images = {
   bagButtonSmall: require('../Images/Icons/shopping-bag-512.png'),
   cancelButtonSmall: require('../Images/Icons/cancel-32.png'),
+  backButtonSmall: require('../Images/Icons/back-arrow-32.png'),
 };
 
 class NavigationHeader extends Component {
@@ -41,7 +43,7 @@ class NavigationHeader extends Component {
     }
   }
 
-  modalOrNot = () => {
+  modalOrNotRight = () => {
     if(this.props.modal) {
       return (
         <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
@@ -61,15 +63,31 @@ class NavigationHeader extends Component {
     }
   }
 
+  modalOrNotLeft = () => {
+    if(!this.props.modal && !isIphoneX() && this.props.nav.index !== 0) {
+      return (
+        <View style={{flex: 0.2, marginTop: 45, marginRight: 1, flexDirection: 'row', justifyContent: 'center'}}>  // Back Button
+          <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+            <Image style={{ height: 30, width: 30}} source={Images.backButtonSmall}/>
+          </TouchableOpacity>
+        </View>
+      );
+    } else {
+      return (
+        <View style={{flex: 0.2}}/>  // Back Button
+      );
+    }
+  }
+
   render () {
     return (
       <View style={{height: 90, backgroundColor: 'white', flexDirection: 'row', borderBottomWidth: 1, borderColor: '#43464b'}}>
-        <View style={{flex: 0.2}}/>  // Back Button
+        {this.modalOrNotLeft()}
         <View style={{flex: 0.6, marginTop: 55}}>
           <Text style={{fontSize: 20, textAlign: 'center'}}>{this.props.title}</Text>
         </View>
         <View style={{flex: 0.2, marginTop: 45, marginLeft: 1, flexDirection: 'row', justifyContent: 'center'}}>
-          {this.modalOrNot()}
+          {this.modalOrNotRight()}
         </View>
       </View>
     );
@@ -78,6 +96,7 @@ class NavigationHeader extends Component {
 
 const mapStateToProps = state => ({
   cart: state.shopify.cart,
+  nav: state.nav,
 });
 
 export default connect(mapStateToProps)(NavigationHeader);
