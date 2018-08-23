@@ -1,4 +1,4 @@
-import Analytics from 'react-native-analytics';
+import Analytics from "react-native-analytics";
 
 // Event names for events sent to Segment from the app - these should be
 // fairly self-explanatory - change the strings below to change the event names
@@ -6,19 +6,19 @@ import Analytics from 'react-native-analytics';
 // implementation approach but these are here to illustrate how to call the
 // various Segment eCommerce events.
 
-const TRACK_PRODUCT_ADDED = 'Product Added';
-const TRACK_PRODUCT_REMOVED = 'Product Removed';
-const TRACK_PRODUCT_VIEWED = 'Product Viewed';
-const TRACK_PRODUCT_CLICKED = 'Product Clicked';
+const TRACK_PRODUCT_ADDED = "Product Added";
+const TRACK_PRODUCT_REMOVED = "Product Removed";
+const TRACK_PRODUCT_VIEWED = "Product Viewed";
+const TRACK_PRODUCT_CLICKED = "Product Clicked";
 
-const TRACK_CHECKOUT_STARTED = 'Checkout Started';
-const TRACK_CHECKOUT_COMPLETED = 'Checkout Completed';
-const TRACK_CART_VIEWED = 'Cart Viewed';
-const TRACK_PRODUCT_LIST_VIEWED = 'Product List Viewed';
+const TRACK_CHECKOUT_STARTED = "Checkout Started";
+const TRACK_CHECKOUT_COMPLETED = "Order Completed";
+const TRACK_CART_VIEWED = "Cart Viewed";
+const TRACK_PRODUCT_LIST_VIEWED = "Product List Viewed";
 
 export function identify(id, email) {
   Analytics.identify(id, {
-    email: email,
+    email: email
   });
   Analytics.flush();
 }
@@ -39,7 +39,7 @@ export function checkoutStarted(cart) {
 }
 
 export function checkoutCompleted(cart) {
-  Analytics.track(TRACK_CHECKOUT_COMPLETED, { products: { ...cart} });
+  Analytics.track(TRACK_CHECKOUT_COMPLETED, { products: { ...cart } });
   Analytics.flush();
 }
 
@@ -54,6 +54,6 @@ export function productViewed(variant) {
 }
 
 export function productListViewed(productList) {
-  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: productList } );
+  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: productList });
   Analytics.flush();
 }
