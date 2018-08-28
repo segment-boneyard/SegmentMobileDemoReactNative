@@ -34,17 +34,25 @@ export function productRemoved(variant) {
 }
 
 export function checkoutStarted(cart) {
-  Analytics.track(TRACK_CHECKOUT_STARTED, { products: { ...cart } });
+  Analytics.track(TRACK_CHECKOUT_STARTED, {
+    revenue: cart.total,
+    products: cart.products,
+    currency: "USD"
+  });
   Analytics.flush();
 }
 
 export function checkoutCompleted(cart) {
-  Analytics.track(TRACK_CHECKOUT_COMPLETED, { products: { ...cart } });
+  Analytics.track(TRACK_CHECKOUT_COMPLETED, {
+    total: cart.total,
+    products: cart.products,
+    currency: "USD"
+  });
   Analytics.flush();
 }
 
 export function cartViewed(cart) {
-  Analytics.track(TRACK_CART_VIEWED, { products: { ...cart } });
+  Analytics.track(TRACK_CART_VIEWED, { products: cart.products });
   Analytics.flush();
 }
 
