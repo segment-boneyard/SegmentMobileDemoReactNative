@@ -1,5 +1,6 @@
 import Analytics from "@segment/analytics-react-native";
 import Appboy from "@segment/analytics-react-native-appboy";
+import Config from 'react-native-config'
 
 // Event names for events sent to Segment from the app - these should be
 // fairly self-explanatory - change the strings below to change the event names
@@ -21,7 +22,8 @@ Analytics
   .configure()
   .trackAppLifecycleEvents()
   .using(Appboy)
-  .setup('bPLTOh8v23u5MPuvUaqClUFqD7VVRQxU')
+  .debug()
+  .setup(Config.SEGMENT_WRITE_KEY)
 
 export function identify(id, email) {
   Analytics.identify(id, {
