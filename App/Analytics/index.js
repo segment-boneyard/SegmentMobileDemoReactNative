@@ -1,4 +1,5 @@
-import Analytics from "react-native-analytics";
+import Analytics from "@segment/analytics-react-native";
+import Appboy from "@segment/analytics-react-native-appboy";
 
 // Event names for events sent to Segment from the app - these should be
 // fairly self-explanatory - change the strings below to change the event names
@@ -16,21 +17,24 @@ const TRACK_CHECKOUT_COMPLETED = "Order Completed";
 const TRACK_CART_VIEWED = "Cart Viewed";
 const TRACK_PRODUCT_LIST_VIEWED = "Product List Viewed";
 
+Analytics
+  .configure()
+  .trackAppLifecycleEvents()
+  .using(Appboy)
+  .setup('bPLTOh8v23u5MPuvUaqClUFqD7VVRQxU')
+
 export function identify(id, email) {
   Analytics.identify(id, {
     email: email
   });
-  Analytics.flush();
 }
 
 export function productAdded(variant) {
   Analytics.track(TRACK_PRODUCT_ADDED, { ...variant });
-  Analytics.flush();
 }
 
 export function productRemoved(variant) {
   Analytics.track(TRACK_PRODUCT_REMOVED, { ...variant });
-  Analytics.flush();
 }
 
 export function checkoutStarted(cart) {
@@ -39,7 +43,6 @@ export function checkoutStarted(cart) {
     products: cart.products,
     currency: "USD"
   });
-  Analytics.flush();
 }
 
 export function checkoutCompleted(cart) {
@@ -48,20 +51,16 @@ export function checkoutCompleted(cart) {
     products: cart.products,
     currency: "USD"
   });
-  Analytics.flush();
 }
 
 export function cartViewed(cart) {
   Analytics.track(TRACK_CART_VIEWED, { products: cart.products });
-  Analytics.flush();
 }
 
 export function productViewed(variant) {
   Analytics.track(TRACK_PRODUCT_VIEWED, { ...variant });
-  Analytics.flush();
 }
 
 export function productListViewed(productList) {
   Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: productList });
-  Analytics.flush();
 }
