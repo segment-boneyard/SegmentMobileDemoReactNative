@@ -1,5 +1,5 @@
 import { NavigationActions } from 'react-navigation';
-import Analytics from 'react-native-analytics';
+import Analytics from '@segment/analytics-react-native';
 
 // gets the current screen from navigation state
 const getCurrentRouteName = (navigationState) => {
