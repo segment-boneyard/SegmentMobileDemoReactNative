@@ -6,7 +6,7 @@ import com.facebook.react.ReactApplication;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.segment.analytics.reactnative.integration.appboy.RNAnalyticsIntegration_AppboyPackage;
 import com.segment.analytics.reactnative.core.RNAnalyticsPackage;
-import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
+//import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -32,9 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
             new RNDeviceInfo(),
             new RNAnalyticsIntegration_AppboyPackage(),
             new RNAnalyticsPackage(),
-            new RNI18nPackage(),
+            //new RNI18nPackage(),
             new ReactNativeConfigPackage(),
-            new ReactNativeI18n(),
+            //new ReactNativeI18n(),
             new VectorIconsPackage()
       );
     }
