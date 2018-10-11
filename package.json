@@ -24,7 +24,7 @@
     "git-hook": "npm run lint -s && npm run test -s"
   },
   "dependencies": {
-    "@segment/analytics-react-native": "^0.0.1-alpha.1",
+    "@segment/analytics-react-native": "^0.0.1-alpha.7",
     "@segment/analytics-react-native-appboy": "^0.0.1-alpha.0",
     "apisauce": "^0.14.2",
     "apollo-cache-inmemory": "^1.2.5",

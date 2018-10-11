@@ -65,4 +65,5 @@ export function productViewed(variant) {
 
 export function productListViewed(productList) {
   Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: productList });
+  Analytics.flush();
 }
