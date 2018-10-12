@@ -39,12 +39,10 @@ class NavigationHeader extends Component {
   cartItems = () => {
     if (this.props.cart.products.length > 0) {
       return (
-        <Text style={{ textAlign: "center", alignSelf: "center", top: 10 }}>{`${
-          this.props.cart.products.length
-        }`}</Text>
+        <Text style={{ textAlign: "center", alignSelf: "center", top: 10 }}>{`${ this.props.cart.products.length }`}</Text>
       );
     } else {
-      return <Text />;
+      return (<Text>{""}</Text>);
     }
   };
 
@@ -80,17 +78,7 @@ class NavigationHeader extends Component {
   modalOrNotLeft = () => {
     if (!this.props.modal && !isIphoneX() && this.props.nav.index !== 0) {
       return (
-        <View
-          style={{
-            flex: 0.2,
-            marginTop: 45,
-            marginRight: 1,
-            flexDirection: "row",
-            justifyContent: "center"
-          }}
-        >
-          {" "}
-          // Back Button
+        <View style={{ flex: 0.2, marginTop: 45, marginRight: 1, flexDirection: "row", justifyContent: "center" }} >
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <Image
               style={{ height: 30, width: 30 }}

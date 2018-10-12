@@ -1,13 +1,16 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '12.0'
 
 target 'SegmentMobileDemoReactNative' do
-  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
-  # Pods for SegmentMobileDemoReactNative
-  pod 'Analytics', '~> 3.0'
-  pod 'Segment-Appboy'
+  # Add new pods below this line
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+  pod 'RNAnalyticsIntegration-Appboy', :path => '../node_modules/@segment/analytics-react-native-appboy'
+
+  pod 'RNAnalytics', :path => '../node_modules/@segment/analytics-react-native'
 
   target 'SegmentMobileDemoReactNativeTests' do
     inherit! :search_paths

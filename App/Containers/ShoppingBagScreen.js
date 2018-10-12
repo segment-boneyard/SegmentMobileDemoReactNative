@@ -71,23 +71,9 @@ class ShoppingBagScreen extends Component {
     if (this.props.cart.products.length === 0) {
       return (
         <View style={{ flex: 1, backgroundColor: "white", margin: 15 }}>
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <Text
-              style={{ fontSize: 20, textAlign: "center", marginBottom: 30 }}
-            >
-              {"Unfortunately your shopping bag is empty."}
-            </Text>
-            <Image
-              style={{ height: 128, width: 128 }}
-              source={require("../Images/Icons/shopping-bag-512.png")}
-            />
+          <View style={{ flex: 1, flexDirection: "column", justifyContent: "center", alignItems: "center" }} >
+            <Text style={{ fontSize: 20, textAlign: "center", marginBottom: 30 }}>{"Unfortunately your shopping bag is empty."}</Text>
+            <Image style={{ height: 128, width: 128 }} source={require("../Images/Icons/shopping-bag-512.png")} />
           </View>
         </View>
       );
@@ -95,11 +81,7 @@ class ShoppingBagScreen extends Component {
       return (
         <View style={{ flex: 1 }}>
           <View style={{ flex: 1, backgroundColor: "white", marginTop: 5 }}>
-            <FlatList
-              data={this.props.cart.products}
-              renderItem={this.renderItem}
-              keyExtractor={item => item.productId}
-            />
+            <FlatList data={this.props.cart.products} renderItem={this.renderItem} keyExtractor={item => item.productId} />
           </View>
           // Bottom thin line
           <View
@@ -117,12 +99,8 @@ class ShoppingBagScreen extends Component {
           >
             // Bottom thin line
             <View style={{ flex: 0.3, flexDirection: "row" }}>
-              <Text style={{ marginTop: 15, fontSize: 20 }}>
-                Your Cart Total:
-              </Text>
-              <Text style={{ marginTop: 15, fontSize: 20 }}>{`$${
-                this.props.cart.total
-              }`}</Text>
+              <Text style={{ marginTop: 15, fontSize: 20 }}>{"Your Cart Total:"}</Text>
+              <Text style={{ marginTop: 15, fontSize: 20 }}>{`$${ this.props.cart.total }`}</Text>
             </View>
             <View
               style={{ flex: 0.35, flexDirection: "row", alignItems: "center" }}
@@ -139,13 +117,7 @@ class ShoppingBagScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        // Header
-        <NavigationHeader
-          title={"YOUR BAG"}
-          navigation={this.props.navigation}
-          modal={true}
-        />
-        // Content
+        <NavigationHeader title={"YOUR BAG"} navigation={this.props.navigation} modal={true} />
         {this.renderCartContent()}
       </View>
     );
