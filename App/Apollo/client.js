@@ -6,17 +6,15 @@ import { graphql } from 'react-apollo';
 import { fetch } from 'whatwg-fetch';  // This is needed for testing
 import gql from 'graphql-tag';
 import * as Fragments from './fragments';
+import Config from 'react-native-config';
 
-const NETWORK_INTERFACE_URL = 'https://segment-ecommerce-demo-store.myshopify.com/api/graphql';
-const AUTH_TOKEN = 'd5e4776a79398e8b1160b1dad613e17a';
-
-const networkInterface = { uri: NETWORK_INTERFACE_URL, fetch: fetch };
+const networkInterface = { uri: Config.SHOPIFY_API_URL, fetch: fetch };
 const httpLink = createHttpLink(networkInterface);
 
 const authLink = setContext(() => {
   return {
     headers: {
-      'X-Shopify-Storefront-Access-Token': `${AUTH_TOKEN}`,
+      'X-Shopify-Storefront-Access-Token': `${Config.SHOPIFY_AUTH_TOKEN}`,
     }
   };
 });
