@@ -69,8 +69,6 @@ const getProducts = R.map(R.pick(['id', 'title']));
 export function productListViewed(productList) {
   // Remove variants as these make messages too large with the
   // default Shopify payloads
-  let trimmedProducts = getProducts(productList);
-  console.log("*** TRIMMED: ", trimmedProducts);
-  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: trimmedProducts });
-  Analytics.flush();
+  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: getProducts(productList) });
+  Analytics.flush();  // Called to show this event immediately
 }
