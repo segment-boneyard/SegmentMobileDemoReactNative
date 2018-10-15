@@ -1,6 +1,7 @@
 import Analytics from "@segment/analytics-react-native";
 import Appboy from "@segment/analytics-react-native-appboy";
-import Config from 'react-native-config'
+import Config from 'react-native-config';
+import R from 'ramda';
 
 // Event names for events sent to Segment from the app - these should be
 // fairly self-explanatory - change the strings below to change the event names
@@ -63,7 +64,13 @@ export function productViewed(variant) {
   Analytics.track(TRACK_PRODUCT_VIEWED, { ...variant });
 }
 
+const getProducts = R.map(R.pick(['id', 'title']));
+
 export function productListViewed(productList) {
-  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: productList });
+  // Remove variants as these make messages too large with the
+  // default Shopify payloads
+  let trimmedProducts = getProducts(productList);
+  console.log("*** TRIMMED: ", trimmedProducts);
+  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: trimmedProducts });
   Analytics.flush();
 }
