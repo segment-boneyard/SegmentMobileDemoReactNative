@@ -83,11 +83,9 @@ class ShoppingBagScreen extends Component {
           <View style={{ flex: 1, backgroundColor: "white", marginTop: 5 }}>
             <FlatList data={this.props.cart.products} renderItem={this.renderItem} keyExtractor={item => item.productId} />
           </View>
-          // Bottom thin line
           <View
             style={{ backgroundColor: "#43464b", height: 2, width: "100%" }}
           />
-          // Footer
           <View
             style={{
               flex: 0.3,
@@ -97,7 +95,6 @@ class ShoppingBagScreen extends Component {
               justifyContent: "flex-start"
             }}
           >
-            // Bottom thin line
             <View style={{ flex: 0.3, flexDirection: "row" }}>
               <Text style={{ marginTop: 15, fontSize: 20 }}>{"Your Cart Total:"}</Text>
               <Text style={{ marginTop: 15, fontSize: 20 }}>{`$${ this.props.cart.total }`}</Text>
