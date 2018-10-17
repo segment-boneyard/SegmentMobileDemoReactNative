@@ -3,6 +3,7 @@ platform :ios, '12.0'
 
 target 'SegmentMobileDemoReactNative' do
   pod 'React', :path => '../node_modules/react-native'
+  #pod 'yoga', '= 0.57.1.React'
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # Add new pods below this line

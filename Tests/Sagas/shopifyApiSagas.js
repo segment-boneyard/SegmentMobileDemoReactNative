@@ -1,18 +1,22 @@
-import { getProducts, flattenProps, getProductNodes, getVariantNodes } from '../../App/Sagas/ShopifySagas';
-import { dummyData } from '../../App/Fixtures/shopify';
+import {
+  getProducts,
+  getProductNodes,
+  trimVariants
+} from "../../App/Sagas/ShopifySagas";
+import { dummyData } from "../../App/Fixtures/shopify";
 
-const stepper = (fn) => (mock) => fn.next(mock).value;
+const stepper = fn => mock => fn.next(mock).value;
 
-test('Successful call to Shopify API.', () => {
+test("Successful call to Shopify API.", () => {
   const gen = getProducts();
   const result = gen.next();
-  console.log(JSON.stringify(result,null,2));
+  console.log(JSON.stringify(result, null, 2));
 });
 
-test('Successful data mapping from Shopify.', () => {
+test("Successful data mapping from Shopify.", () => {
   //console.log(dummyData.products.edges);
   const nodes = getProductNodes(dummyData.products.edges);
-  const variants = getVariantNodes(nodes);
+  const variants = trimVariants(nodes);
   nodes.variants = variants;
   console.log(nodes);
 });

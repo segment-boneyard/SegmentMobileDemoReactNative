@@ -21,10 +21,10 @@ PODS:
     - Appboy-iOS-SDK/InAppMessage
     - Appboy-iOS-SDK/NewsFeed
   - FLAnimatedImage (1.0.12)
-  - React (0.57.1):
-    - React/Core (= 0.57.1)
-  - React/Core (0.57.1):
-    - yoga (= 0.57.1.React)
+  - React (0.57.3):
+    - React/Core (= 0.57.3)
+  - React/Core (0.57.3):
+    - yoga (= 0.57.3.React)
   - RNAnalytics (0.0.1-alpha.7):
     - Analytics
     - React
@@ -41,7 +41,7 @@ PODS:
   - Segment-Appboy (2.0.1):
     - Analytics (~> 3.0)
     - Appboy-iOS-SDK
-  - yoga (0.57.1.React)
+  - yoga (0.57.3.React)
 
 DEPENDENCIES:
   - React (from `../node_modules/react-native`)
@@ -82,6 +82,6 @@ SPEC CHECKSUMS:
   Segment-Appboy: e9903bd39d52ea41c882b0b13ab8624eaf84b8c8
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: b6e2b35b2c13b59a44a217e3d2eaf5210bc375a8
+PODFILE CHECKSUM: 47522c8433a103d7e44ec80c026c3d83e71bc7ea
 
 COCOAPODS: 1.5.3
