@@ -1,0 +1,87 @@
+PODS:
+  - Analytics (3.6.9)
+  - Appboy-iOS-SDK (3.9.0):
+    - Appboy-iOS-SDK/UI (= 3.9.0)
+  - Appboy-iOS-SDK/ContentCards (3.9.0):
+    - Appboy-iOS-SDK/Core
+    - SDWebImage/GIF (~> 4.0)
+  - Appboy-iOS-SDK/Core (3.9.0)
+  - Appboy-iOS-SDK/Feedback (3.9.0):
+    - Appboy-iOS-SDK/Core
+  - Appboy-iOS-SDK/InAppMessage (3.9.0):
+    - Appboy-iOS-SDK/Core
+    - SDWebImage/GIF (~> 4.0)
+  - Appboy-iOS-SDK/NewsFeed (3.9.0):
+    - Appboy-iOS-SDK/Core
+    - SDWebImage/GIF (~> 4.0)
+  - Appboy-iOS-SDK/UI (3.9.0):
+    - Appboy-iOS-SDK/ContentCards
+    - Appboy-iOS-SDK/Core
+    - Appboy-iOS-SDK/Feedback
+    - Appboy-iOS-SDK/InAppMessage
+    - Appboy-iOS-SDK/NewsFeed
+  - FLAnimatedImage (1.0.12)
+  - React (0.57.3):
+    - React/Core (= 0.57.3)
+  - React/Core (0.57.3):
+    - yoga (= 0.57.3.React)
+  - RNAnalytics (0.0.1-alpha.7):
+    - Analytics
+    - React
+  - RNAnalyticsIntegration-Appboy (0.0.1-alpha.0):
+    - Analytics
+    - React
+    - Segment-Appboy
+  - RNDeviceInfo (0.21.5):
+    - React
+  - SDWebImage/Core (4.4.2)
+  - SDWebImage/GIF (4.4.2):
+    - FLAnimatedImage (~> 1.0)
+    - SDWebImage/Core
+  - Segment-Appboy (2.0.1):
+    - Analytics (~> 3.0)
+    - Appboy-iOS-SDK
+  - yoga (0.57.3.React)
+
+DEPENDENCIES:
+  - React (from `../node_modules/react-native`)
+  - "RNAnalytics (from `../node_modules/@segment/analytics-react-native`)"
+  - "RNAnalyticsIntegration-Appboy (from `../node_modules/@segment/analytics-react-native-appboy`)"
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Analytics
+    - Appboy-iOS-SDK
+    - FLAnimatedImage
+    - SDWebImage
+    - Segment-Appboy
+
+EXTERNAL SOURCES:
+  React:
+    :path: "../node_modules/react-native"
+  RNAnalytics:
+    :path: "../node_modules/@segment/analytics-react-native"
+  RNAnalyticsIntegration-Appboy:
+    :path: "../node_modules/@segment/analytics-react-native-appboy"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  Analytics: 6541ce337e99d9f7a2240a8b3953940a7be5f998
+  Appboy-iOS-SDK: c245f36aafe6e1b5249a8924e598e82e1c233f5d
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  RNAnalytics: e48fd2e561459802621750097c7ead245ea09b6a
+  RNAnalyticsIntegration-Appboy: 7e41e5ea83e8feb3442c87bd18b82492f364416a
+  RNDeviceInfo: 568c5641057313b4912d08a7742ff0b2f753ed5c
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  Segment-Appboy: e9903bd39d52ea41c882b0b13ab8624eaf84b8c8
+  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
+
+PODFILE CHECKSUM: 47522c8433a103d7e44ec80c026c3d83e71bc7ea
+
+COCOAPODS: 1.5.3

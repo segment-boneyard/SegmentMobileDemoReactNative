@@ -1,0 +1,31 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '12.0'
+
+target 'SegmentMobileDemoReactNative' do
+  pod 'React', :path => '../node_modules/react-native'
+  #pod 'yoga', '= 0.57.1.React'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+
+  # Add new pods below this line
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
+
+  pod 'RNAnalyticsIntegration-Appboy', :path => '../node_modules/@segment/analytics-react-native-appboy'
+
+  pod 'RNAnalytics', :path => '../node_modules/@segment/analytics-react-native'
+
+  target 'SegmentMobileDemoReactNativeTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      if target.name == "Appboy-iOS-SDK"
+        config.build_settings["OTHER_LDFLAGS"] = '$(inherited) "-ObjC"'
+      end
+    end
+  end
+end
