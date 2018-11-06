@@ -41,4 +41,4 @@ SHOPIFY_API_URL= <your shopify API endpoint>
 SHOPIFY_AUTH_TOKEN= <your shopify auth token>
 ```
 
-For the app to work out of the box, you will want to copy the Shopify data format used in this app: [Segment Demo eCommerce Store]https://segment-ecommerce-demo-store.myshopify.com.
+For the app to work out of the box, you will want to copy the Shopify data format used in this app: [Segment Demo eCommerce Store](https://segment-ecommerce-demo-store.myshopify.com).
