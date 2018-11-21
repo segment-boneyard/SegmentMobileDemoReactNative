@@ -70,13 +70,11 @@ class CheckoutScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        // Header
         <NavigationHeader
           title={"COMPLETE ORDER"}
           navigation={this.props.navigation}
           modal={true}
         />
-        // Content
         <View style={{ flex: 1, backgroundColor: "white" }}>
           <View
             style={{
@@ -138,11 +136,9 @@ class CheckoutScreen extends Component {
             </View>
           </View>
         </View>
-        // Bottom thin line
         <View
           style={{ backgroundColor: "#43464b", height: 2, width: "100%" }}
         />
-        // Footer
         <View
           style={{
             flex: 0.3,
@@ -204,7 +200,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(CheckoutScreen);
-
-/*
-
-*/
