@@ -33,6 +33,7 @@
     "apollo-link-context": "^1.0.8",
     "apollo-link-error": "^1.1.0",
     "apollo-link-http": "^1.5.4",
+    "axios": "^0.18.0",
     "format-json": "^1.0.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
