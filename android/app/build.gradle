@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-idfa')
     compile project(':react-native-device-info')
     compile project(':@segment_analytics-react-native-appboy')
     compile project(':@segment_analytics-react-native')

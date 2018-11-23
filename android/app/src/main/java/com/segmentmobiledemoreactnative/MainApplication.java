@@ -3,6 +3,7 @@ package com.segmentmobiledemoreactnative;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.PTR.IDFA.IDFAPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.segment.analytics.reactnative.integration.appboy.RNAnalyticsIntegration_AppboyPackage;
 import com.segment.analytics.reactnative.core.RNAnalyticsPackage;
@@ -29,6 +30,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new IDFAPackage(),
             new RNDeviceInfo(),
             new RNAnalyticsIntegration_AppboyPackage(),
             new RNAnalyticsPackage(),

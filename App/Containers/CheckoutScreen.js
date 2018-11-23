@@ -128,10 +128,9 @@ class CheckoutScreen extends Component {
                   borderWidth: 1,
                   width: "100%"
                 }}
-                onChangeText={text => {
+                onChangeText={(text) => {
                   this.text = text;
                 }}
-                value={this.text}
               />
             </View>
           </View>

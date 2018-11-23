@@ -1,4 +1,6 @@
 rootProject.name = 'SegmentMobileDemoReactNative'
+include ':react-native-idfa'
+project(':react-native-idfa').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-idfa/android')
 include ':react-native-device-info'
 project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
 include ':@segment_analytics-react-native-appboy'
