@@ -7,7 +7,7 @@ const API_SERVER_URL = "https://profiles.segment.com";
 
 export async function getTraits() {
   try {
-    let data = await fetch(traitsIDFAURL('773D2B40-A6D7-48D9-94B5-FCBD80FB1302'));
+    let data = await fetch(traitsEmailURL('igor+fg1@segment.com'));
     return data.data.traits;
   } catch (e) {
     console.log('Error fetching traits: ', e);

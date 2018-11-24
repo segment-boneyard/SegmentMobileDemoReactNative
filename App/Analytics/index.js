@@ -22,7 +22,7 @@ const TRACK_PRODUCT_LIST_VIEWED = "Product List Viewed";
 
 Analytics.setup(Config.SEGMENT_WRITE_KEY, {
         using: [Appboy],
-        recordScreenViews: true,
+        recordScreenViews: false,
         trackAppLifecycleEvents: true,
         trackAttributionData: true,
 
