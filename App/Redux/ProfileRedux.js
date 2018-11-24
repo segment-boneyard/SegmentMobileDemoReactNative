@@ -36,6 +36,11 @@ export const failure = state => {
   return state.merge({ fetching: false, error: true, traits: null });
 };
 
+export const checkoutEmail = state => {
+  const { email } = action;
+  return state.merge({ updateEmail: email });
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {

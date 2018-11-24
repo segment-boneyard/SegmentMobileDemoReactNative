@@ -11,6 +11,8 @@
 #import <React/RCTRootView.h>
 #import <Analytics/SEGAnalytics.h>
 #import <React/RCTPushNotificationManager.h>
+#import <AdSupport/ASIdentifierManager.h>
+
 #import "SEGAppboyIntegrationFactory.h"
 #import "Appboy.h"
 
@@ -33,6 +35,12 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  // Get the IDFA and log it...for debugging purposes
+  NSString *idfaString = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+  NSLog(@"*** IDFA ***");
+  NSLog(idfaString);
+  NSLog(@"************");
   
   if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerForRemoteNotifications)]) {
     UIUserNotificationType types = UIUserNotificationTypeAlert | UIUserNotificationTypeSound |

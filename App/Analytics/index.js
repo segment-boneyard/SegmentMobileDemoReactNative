@@ -19,12 +19,27 @@ const TRACK_CHECKOUT_COMPLETED = "Order Completed";
 const TRACK_CART_VIEWED = "Cart Viewed";
 const TRACK_PRODUCT_LIST_VIEWED = "Product List Viewed";
 
-Analytics
-  .configure()
-  .trackAppLifecycleEvents()
-  .using(Appboy)
-  .debug()
-  .setup(Config.SEGMENT_WRITE_KEY)
+
+Analytics.setup(Config.SEGMENT_WRITE_KEY, {
+        using: [Appboy],
+        recordScreenViews: true,
+        trackAppLifecycleEvents: true,
+        trackAttributionData: true,
+
+        android: {
+            flushInterval: 60,
+            collectDeviceId: true
+        },
+        ios: {
+            trackAdvertising: true,
+            trackDeepLinks: true
+        }
+    })
+    .then(() =>
+        console.log('Analytics is ready')
+    ).catch(err =>
+        console.error('Something went wrong', err)
+    );
 
 export function identify(id, email) {
   Analytics.identify(id, {
