@@ -1,25 +1,49 @@
-import axios from "axios";
+import axios from 'axios';
 import Config from 'react-native-config';
-
-
+import { IDFA } from '@ptomasroos/react-native-idfa';
 // This works only off of the batch endpoint
-const API_SERVER_URL = "https://profiles.segment.com";
+const API_SERVER_URL = 'https://profiles.segment.com';
 
 export async function getTraits() {
   try {
-    let data = await fetch(traitsIDFAURL('773D2B40-A6D7-48D9-94B5-FCBD80FB1302'));
+    let idfa = await traitsIDFAURL();
+    console.log('this is something', idfa);
+    let data = await fetch(idfa);
+    console.log('this is data', data);
     return data.data.traits;
   } catch (e) {
     console.log('Error fetching traits: ', e);
   }
 }
 
+export function getIDFA() {
+  return new Promise((res, err) => {
+    IDFA.getIDFA()
+      .then(idfa => {
+        console.log('Idfa', idfa);
+        res(idfa);
+      })
+      .catch(e => {
+        console.error(e);
+        err(e);
+      });
+  });
+}
 function baseURL() {
-  return `${API_SERVER_URL}/v1/spaces/${Config.PROFILES_WORKSPACE_ID}/collections/users/profiles`;
+  return `${API_SERVER_URL}/v1/spaces/${
+    Config.PROFILES_WORKSPACE_ID
+  }/collections/users/profiles`;
 }
 
-function traitsIDFAURL(idfa) {
-  return `${baseURL()}/ios.idfa:${idfa}/traits?limit=200`;
+function traitsIDFAURL() {
+  return new Promise((res, err) => {
+    getIDFA()
+      .then(data => {
+        res(`${baseURL()}/ios.idfa:${data}/traits?limit=200`);
+        //res(`${baseURL()}/ios.idfa:773D2B40-A6D7-48D9-94B5-FCBD80FB1302/traits?limit=200`);
+      })
+      .catch(e => err(e));
+  });
 }
 
 function traitsEmailURL(email) {
@@ -29,16 +53,16 @@ function traitsEmailURL(email) {
 async function fetch(url) {
   try {
     const response = await axios({
-      method: "GET",
+      method: 'GET',
       url: url,
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
       },
       auth: {
         username: Config.PROFILES_API_KEY,
-        password: ""
-      },
+        password: ''
+      }
       //data: stringJSON
     });
     return response;

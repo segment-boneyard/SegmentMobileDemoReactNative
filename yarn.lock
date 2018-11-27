@@ -786,6 +786,11 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@ptomasroos/react-native-idfa@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@ptomasroos/react-native-idfa/-/react-native-idfa-3.0.1.tgz#e1bf988d9a2f53e418913047e0b7fe31a17f1c95"
+  integrity sha512-TB/4CgeuVbtpctgLo64cSrdigvCb5shmS61XKtK3rVnwkGEDAnqg3U8g1gIdfKabC0D10tielxD2WeCAx70rnA==
+
 "@segment/analytics-react-native-appboy@^0.0.1-alpha.0":
   version "0.0.1-alpha.0"
   resolved "https://registry.yarnpkg.com/@segment/analytics-react-native-appboy/-/analytics-react-native-appboy-0.0.1-alpha.0.tgz#8b518e14056e222112458fa848efec5216215560"
