@@ -1,5 +1,5 @@
 import Analytics from '@segment/analytics-react-native';
-import Appboy from '@segment/analytics-react-native-appboy';
+// import Appboy from '@segment/analytics-react-native-appboy';
 import Config from 'react-native-config';
 import R from 'ramda';
 
@@ -21,7 +21,7 @@ const TRACK_PRODUCT_LIST_VIEWED = 'Product List Viewed';
 
 Analytics.configure()
   .trackAppLifecycleEvents()
-  .using(Appboy)
+  // .using(Appboy)
   .debug()
   .setup(Config.SEGMENT_WRITE_KEY);
 
@@ -69,7 +69,8 @@ export function productListViewed(productList) {
   // Remove variants as these make messages too large with the
   // default Shopify payloads
   Analytics.track(TRACK_PRODUCT_LIST_VIEWED, {
+
     products: getProducts(productList)
-  });
+    });
   Analytics.flush(); // Called to show this event immediately
 }
