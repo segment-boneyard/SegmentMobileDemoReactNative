@@ -1,12 +1,12 @@
-import { createReducer, createActions } from "reduxsauce";
-import Immutable from "seamless-immutable";
+import { createReducer, createActions } from 'reduxsauce';
+import Immutable from 'seamless-immutable';
 
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
   profileRequest: null,
-  profileSuccess: ["traits"],
-  profileFailure: null,
+  profileSuccess: ['traits'],
+  profileFailure: null
 });
 
 export const ProfileTypes = Types;
@@ -17,7 +17,7 @@ export default Creators;
 export const INITIAL_STATE = Immutable({
   traits: undefined,
   fetching: null,
-  error: null,
+  error: null
 });
 
 /* ------------- Reducers ------------- */
@@ -28,7 +28,7 @@ export const request = state => {
 
 export const success = (state, action) => {
   const { traits } = action;
-  console.log('MERGING: ', action);
+  console.log('MERGING:', state, action);
   return state.merge({ fetching: false, error: null, traits });
 };
 
@@ -41,5 +41,5 @@ export const failure = state => {
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.PROFILE_REQUEST]: request,
   [Types.PROFILE_SUCCESS]: success,
-  [Types.PROFILE_FAILURE]: failure,
+  [Types.PROFILE_FAILURE]: failure
 });

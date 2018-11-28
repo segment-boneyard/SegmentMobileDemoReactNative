@@ -32,8 +32,10 @@ export default class VariantSelector extends Component {
     if (Platform.OS === 'android') {
       <Picker
         style={{ width: 100 }}
-        selectedValue={this.state.language}
-        onValueChange={(itemValue, itemIndex) => this.setState({ language: itemValue })}
+        selectedValue={this.props.selectedVariant}
+        onValueChange={(itemValue, itemIndex) =>
+          this.props.handleOptionChange(sizeLabels[itemIndex])
+        }
       >
         {sizeLabels.map((elem, index) => {
           <Picker.Item label={elem} value={elem} />;
