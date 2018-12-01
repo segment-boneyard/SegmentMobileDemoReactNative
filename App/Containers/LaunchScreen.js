@@ -16,7 +16,6 @@ import styles from './Styles/LaunchScreenStyles';
 export class LaunchScreen extends Component {
   constructor(props) {
     super(props);
-    getIDFA().then(idfa => Segment.identify(idfa, idfa));
   }
   static navigationOptions = {
     header: null

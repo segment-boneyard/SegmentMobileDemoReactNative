@@ -27,7 +27,7 @@ PODS:
     - React
   - React/Core (0.57.3):
     - yoga (= 0.57.3.React)
-  - RNAnalytics (0.0.1-alpha.7):
+  - RNAnalytics (0.0.1-beta.2):
     - Analytics
     - React
   - RNAnalyticsIntegration-Appboy (0.0.1-alpha.0):

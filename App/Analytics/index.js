@@ -1,5 +1,5 @@
 import Analytics from '@segment/analytics-react-native';
-// import Appboy from '@segment/analytics-react-native-appboy';
+import Appboy from '@segment/analytics-react-native-appboy';
 import Config from 'react-native-config';
 import R from 'ramda';
 
@@ -19,11 +19,26 @@ const TRACK_CHECKOUT_COMPLETED = 'Order Completed';
 const TRACK_CART_VIEWED = 'Cart Viewed';
 const TRACK_PRODUCT_LIST_VIEWED = 'Product List Viewed';
 
-Analytics.configure()
-  .trackAppLifecycleEvents()
-  // .using(Appboy)
-  .debug()
-  .setup(Config.SEGMENT_WRITE_KEY);
+Analytics.setup(Config.SEGMENT_WRITE_KEY, {
+  using: [Appboy],
+  recordScreenViews: false,
+  trackAppLifecycleEvents: false,
+  trackAttributionData: true,
+
+  android: {
+    flushInterval: 60,
+    collectDeviceId: true
+  },
+  ios: {
+    trackAdvertising: true,
+    trackDeepLinks: true
+  }
+})
+  .then(() =>
+    console.log('Analytics is ready')
+  ).catch(err =>
+  console.error('Something went wrong', err)
+);
 
 export function identify(id, email) {
   Analytics.identify(id, {
@@ -68,9 +83,6 @@ const getProducts = R.map(R.pick(['id', 'title']));
 export function productListViewed(productList) {
   // Remove variants as these make messages too large with the
   // default Shopify payloads
-  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, {
-
-    products: getProducts(productList)
-    });
+  Analytics.track(TRACK_PRODUCT_LIST_VIEWED, { products: getProducts(productList) });
   Analytics.flush(); // Called to show this event immediately
 }
