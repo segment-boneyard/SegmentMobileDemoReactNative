@@ -797,9 +797,9 @@
   integrity sha512-JUh4ErJTOJXviLJ72t2eWq7vwSZ59mJn6mm1WyfFrQE4gnddpZF7t9vB/G+TAwaxVQ1HGBBiOO12SYFOaThuVA==
 
 "@segment/analytics-react-native@^0.0.1-alpha.7":
-  version "0.0.1-beta.2"
-  resolved "https://registry.yarnpkg.com/@segment/analytics-react-native/-/analytics-react-native-0.0.1-beta.2.tgz#d2758daac13b307880121afdbb637f61d0cea326"
-  integrity sha512-PcE6v0CKzCIL8mGSWQa6OyjpjQnvzmnp1+mAVrt73WNWyibODdVoCxICBjxuBSU62wtoVUm4lCanrEtumk48fw==
+  version "0.0.1-beta.3"
+  resolved "https://registry.yarnpkg.com/@segment/analytics-react-native/-/analytics-react-native-0.0.1-beta.3.tgz#a4e68f84c85db76bd3431e648791250b0d715983"
+  integrity sha512-pvhEasUKiNNKtu5D7CG1HzGpJZwP1qt6mYqQX7PMNyBKiocl5oHPRiDGfoYgcdjcPG+OloXG4Rd/49z6NgGCYw==
 
 "@storybook/addon-actions@3.4.11":
   version "3.4.11"
