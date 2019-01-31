@@ -7,11 +7,13 @@ import DebugConfig from '../Config/DebugConfig';
 
 import { StartupTypes } from '../Redux/StartupRedux';
 import { ShopifyTypes } from '../Redux/ShopifyRedux';
+import { ProfileTypes } from '../Redux/ProfileRedux';
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas';
 import { getProducts } from './ShopifySagas';
+import { getTraitsSaga } from './ProfilesSaga';
 
 /* ------------- API ------------- */
 
@@ -21,10 +23,11 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create();
 
 /* ------------- Connect Types To Sagas ------------- */
 
-export default function * root () {
+export default function* root() {
   yield all([
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
-    takeLatest(ShopifyTypes.PRODUCT_REQUEST, getProducts) // Trigger product load
+    takeLatest(ShopifyTypes.PRODUCT_REQUEST, getProducts), // Trigger product load
+    takeLatest(ProfileTypes.PROFILE_REQUEST, getTraitsSaga)
   ]);
 }

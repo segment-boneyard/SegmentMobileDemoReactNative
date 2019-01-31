@@ -24,6 +24,7 @@
     "git-hook": "npm run lint -s && npm run test -s"
   },
   "dependencies": {
+    "@ptomasroos/react-native-idfa": "^3.0.1",
     "@segment/analytics-react-native": "^0.0.1-alpha.7",
     "@segment/analytics-react-native-appboy": "^0.0.1-alpha.0",
     "apisauce": "^0.14.2",
@@ -33,6 +34,7 @@
     "apollo-link-context": "^1.0.8",
     "apollo-link-error": "^1.1.0",
     "apollo-link-http": "^1.5.4",
+    "axios": "^0.18.0",
     "format-json": "^1.0.3",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",

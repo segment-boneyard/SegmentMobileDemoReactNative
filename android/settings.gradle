@@ -1,15 +1,17 @@
 rootProject.name = 'SegmentMobileDemoReactNative'
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-i18n'
+project(':react-native-i18n').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-i18n/android')
 include ':react-native-device-info'
 project(':react-native-device-info').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-device-info/android')
+include ':react-native-config'
+project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
 include ':@segment_analytics-react-native-appboy'
 project(':@segment_analytics-react-native-appboy').projectDir = new File(rootProject.projectDir, '../node_modules/@segment/analytics-react-native-appboy/android')
 include ':@segment_analytics-react-native'
 project(':@segment_analytics-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/@segment/analytics-react-native/android')
-include ':react-native-i18n'
-project(':react-native-i18n').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-i18n/android')
-include ':react-native-config'
-project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
-include ':react-native-vector-icons'
-project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':@ptomasroos_react-native-idfa'
+project(':@ptomasroos_react-native-idfa').projectDir = new File(rootProject.projectDir, '../node_modules/@ptomasroos/react-native-idfa/android')
 
 include ':app'

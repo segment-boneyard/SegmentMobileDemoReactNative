@@ -23,9 +23,11 @@ PODS:
   - FLAnimatedImage (1.0.12)
   - React (0.57.3):
     - React/Core (= 0.57.3)
+  - react-native-idfa (3.0.1):
+    - React
   - React/Core (0.57.3):
     - yoga (= 0.57.3.React)
-  - RNAnalytics (0.0.1-alpha.7):
+  - RNAnalytics (0.0.1-beta.2):
     - Analytics
     - React
   - RNAnalyticsIntegration-Appboy (0.0.1-alpha.0):
@@ -45,6 +47,7 @@ PODS:
 
 DEPENDENCIES:
   - React (from `../node_modules/react-native`)
+  - "react-native-idfa (from `../node_modules/@ptomasroos/react-native-idfa`)"
   - "RNAnalytics (from `../node_modules/@segment/analytics-react-native`)"
   - "RNAnalyticsIntegration-Appboy (from `../node_modules/@segment/analytics-react-native-appboy`)"
   - RNDeviceInfo (from `../node_modules/react-native-device-info`)
@@ -61,6 +64,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
+  react-native-idfa:
+    :path: "../node_modules/@ptomasroos/react-native-idfa"
   RNAnalytics:
     :path: "../node_modules/@segment/analytics-react-native"
   RNAnalyticsIntegration-Appboy:
@@ -75,6 +80,7 @@ SPEC CHECKSUMS:
   Appboy-iOS-SDK: c245f36aafe6e1b5249a8924e598e82e1c233f5d
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
+  react-native-idfa: 90e786ebf98c8db9839ca05a3d9db34ce908b17d
   RNAnalytics: e48fd2e561459802621750097c7ead245ea09b6a
   RNAnalyticsIntegration-Appboy: 7e41e5ea83e8feb3442c87bd18b82492f364416a
   RNDeviceInfo: 568c5641057313b4912d08a7742ff0b2f753ed5c
@@ -82,6 +88,6 @@ SPEC CHECKSUMS:
   Segment-Appboy: e9903bd39d52ea41c882b0b13ab8624eaf84b8c8
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: 47522c8433a103d7e44ec80c026c3d83e71bc7ea
+PODFILE CHECKSUM: 820d50ca9d2e13f23ceef408d9acfac60b5f2709
 
 COCOAPODS: 1.5.3

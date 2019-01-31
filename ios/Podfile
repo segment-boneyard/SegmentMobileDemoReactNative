@@ -7,6 +7,8 @@ target 'SegmentMobileDemoReactNative' do
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # Add new pods below this line
+  pod 'react-native-idfa', :path => '../node_modules/@ptomasroos/react-native-idfa'
+
   pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
 
   pod 'RNAnalyticsIntegration-Appboy', :path => '../node_modules/@segment/analytics-react-native-appboy'

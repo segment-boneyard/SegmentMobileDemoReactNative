@@ -3,12 +3,13 @@ package com.segmentmobiledemoreactnative;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
+import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.segment.analytics.reactnative.integration.appboy.RNAnalyticsIntegration_AppboyPackage;
 import com.segment.analytics.reactnative.core.RNAnalyticsPackage;
-//import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.oblador.vectoricons.VectorIconsPackage;
+import com.PTR.IDFA.IDFAPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,13 +30,13 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
+            new RNI18nPackage(),
             new RNDeviceInfo(),
+            new ReactNativeConfigPackage(),
             new RNAnalyticsIntegration_AppboyPackage(),
             new RNAnalyticsPackage(),
-            //new RNI18nPackage(),
-            new ReactNativeConfigPackage(),
-            //new ReactNativeI18n(),
-            new VectorIconsPackage()
+            new IDFAPackage()
       );
     }
 

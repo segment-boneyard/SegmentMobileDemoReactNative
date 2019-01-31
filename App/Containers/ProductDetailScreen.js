@@ -46,7 +46,8 @@ export class ProductDetailScreen extends Component {
   };
 
   render() {
-    // TODO: This is kind of hacky and unsafe but for now...will have to do...
+    // Send an event when the product screen is shown
+    Segment.productViewed(this.currentVariant);
 
     const { params } = this.props.navigation.state;
     return (

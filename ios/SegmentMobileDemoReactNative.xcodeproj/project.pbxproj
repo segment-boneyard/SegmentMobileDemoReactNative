@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -45,6 +44,8 @@
 		684D10750A7E4470A5196BBE /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E220440336F744BEBD6FC384 /* FontAwesome.ttf */; };
 		6F6983FCBD180F526ED30F48 /* libPods-SegmentMobileDemoReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FB3B810522176E56666753F /* libPods-SegmentMobileDemoReactNative.a */; };
 		769EC8B357F04867A5D704E5 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3534CE9CD29E4BDCA2495607 /* Entypo.ttf */; };
+		781E2A8221A774DB0092F98A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781E2A5621A774DB0092F98A /* AdSupport.framework */; };
+		781E2ABF21A9C4370092F98A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 781E2A9321A9C4360092F98A /* iAd.framework */; };
 		7881EE7D210B9DA7002E319B /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7881EE79210B8513002E319B /* libRCTPushNotification.a */; };
 		7899BAFEFEAA4CB28FFC72EA /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D15BEA1FBF4E4A8C9B2B28C2 /* MaterialCommunityIcons.ttf */; };
 		78C6526D2118E78D0099768E /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C6526C2118E78D0099768E /* PassKit.framework */; };
@@ -413,6 +414,8 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		6C8F57AFE04E4617A63B1815 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		765BD064F196401BBF55EAA6 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		781E2A5621A774DB0092F98A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		781E2A9321A9C4360092F98A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		7881EE72210A556A002E319B /* SegmentMobileDemoReactNative.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SegmentMobileDemoReactNative.entitlements; path = SegmentMobileDemoReactNative/SegmentMobileDemoReactNative.entitlements; sourceTree = "<group>"; };
 		7881EE73210B8512002E319B /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				781E2ABF21A9C4370092F98A /* iAd.framework in Frameworks */,
+				781E2A8221A774DB0092F98A /* AdSupport.framework in Frameworks */,
 				7881EE7D210B9DA7002E319B /* libRCTPushNotification.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -617,6 +622,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				781E2A9321A9C4360092F98A /* iAd.framework */,
+				781E2A5621A774DB0092F98A /* AdSupport.framework */,
 				78C6526C2118E78D0099768E /* PassKit.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 				9FB3B810522176E56666753F /* libPods-SegmentMobileDemoReactNative.a */,
@@ -880,7 +887,6 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = ENLA8E7Z4L;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1908,7 +1914,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = ENLA8E7Z4L;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",
@@ -1939,7 +1945,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ENLA8E7Z4L;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-device-info/RNDeviceInfo",

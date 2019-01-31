@@ -786,15 +786,20 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@ptomasroos/react-native-idfa@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@ptomasroos/react-native-idfa/-/react-native-idfa-3.0.1.tgz#e1bf988d9a2f53e418913047e0b7fe31a17f1c95"
+  integrity sha512-TB/4CgeuVbtpctgLo64cSrdigvCb5shmS61XKtK3rVnwkGEDAnqg3U8g1gIdfKabC0D10tielxD2WeCAx70rnA==
+
 "@segment/analytics-react-native-appboy@^0.0.1-alpha.0":
   version "0.0.1-alpha.0"
   resolved "https://registry.yarnpkg.com/@segment/analytics-react-native-appboy/-/analytics-react-native-appboy-0.0.1-alpha.0.tgz#8b518e14056e222112458fa848efec5216215560"
   integrity sha512-JUh4ErJTOJXviLJ72t2eWq7vwSZ59mJn6mm1WyfFrQE4gnddpZF7t9vB/G+TAwaxVQ1HGBBiOO12SYFOaThuVA==
 
 "@segment/analytics-react-native@^0.0.1-alpha.7":
-  version "0.0.1-alpha.7"
-  resolved "https://registry.yarnpkg.com/@segment/analytics-react-native/-/analytics-react-native-0.0.1-alpha.7.tgz#700768c46ac91b60a77156db4bd222660b33cc96"
-  integrity sha512-cwTTEECMOZSYOo+RIy4j8cr4ra1ggxOJ6qpwdXo8CGnixAlZRHlsjG1Agy9EyvO2ezpQ+D6h8gKJh5LP2uWuwg==
+  version "0.0.1-beta.3"
+  resolved "https://registry.yarnpkg.com/@segment/analytics-react-native/-/analytics-react-native-0.0.1-beta.3.tgz#a4e68f84c85db76bd3431e648791250b0d715983"
+  integrity sha512-pvhEasUKiNNKtu5D7CG1HzGpJZwP1qt6mYqQX7PMNyBKiocl5oHPRiDGfoYgcdjcPG+OloXG4Rd/49z6NgGCYw==
 
 "@storybook/addon-actions@3.4.11":
   version "3.4.11"
@@ -1620,6 +1625,14 @@ axios@^0.16.2:
   integrity sha1-uk+S8XFn37q0CYN4VFS5rBScPG0=
   dependencies:
     follow-redirects "^1.2.3"
+    is-buffer "^1.1.5"
+
+axios@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+  integrity sha1-MtU+SFHv3AoRmTts0AB4nXDAUQI=
+  dependencies:
+    follow-redirects "^1.3.0"
     is-buffer "^1.1.5"
 
 babel-code-frame@6.26.0, babel-code-frame@^6.16.0, babel-code-frame@^6.26.0:
@@ -4989,6 +5002,13 @@ follow-redirects@^1.2.3:
   version "1.5.8"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.8.tgz#1dbfe13e45ad969f813e86c00e5296f525c885a1"
   integrity sha512-sy1mXPmv7kLAMKW/8XofG7o9T+6gAjzdZK4AJF6ryqQYUa/hnzgiypoeUecZ53x7XiqKNEpNqLtS97MshW2nxg==
+  dependencies:
+    debug "=3.1.0"
+
+follow-redirects@^1.3.0:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
   dependencies:
     debug "=3.1.0"
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
@@ -6,16 +6,16 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground
-} from "react-native";
-import { connect } from "react-redux";
-import { isIphoneX } from "../Themes/Metrics";
-import * as Segment from "../Analytics";
+} from 'react-native';
+import { connect } from 'react-redux';
+import { isIphoneX } from '../Themes/Metrics';
+import * as Segment from '../Analytics';
 
 const style = StyleSheet.create({
   headerContainer: {
     flex: 1,
-    width: "100%",
-    flexDirection: "row",
+    width: '100%',
+    flexDirection: 'row',
     height: 125,
     marginTop: 40 // TODO:  This is an iOS only header
   },
@@ -26,9 +26,9 @@ const style = StyleSheet.create({
 });
 
 const Images = {
-  bagButtonSmall: require("../Images/Icons/shopping-bag-512.png"),
-  cancelButtonSmall: require("../Images/Icons/cancel-32.png"),
-  backButtonSmall: require("../Images/Icons/back-arrow-32.png")
+  bagButtonSmall: require('../Images/Icons/shopping-bag-512.png'),
+  cancelButtonSmall: require('../Images/Icons/cancel-32.png'),
+  backButtonSmall: require('../Images/Icons/back-arrow-32.png')
 };
 
 class NavigationHeader extends Component {
@@ -39,10 +39,12 @@ class NavigationHeader extends Component {
   cartItems = () => {
     if (this.props.cart.products.length > 0) {
       return (
-        <Text style={{ textAlign: "center", alignSelf: "center", top: 10 }}>{`${ this.props.cart.products.length }`}</Text>
+        <Text style={{ textAlign: 'center', alignSelf: 'center', top: 10 }}>{`${
+          this.props.cart.products.length
+        }`}</Text>
       );
     } else {
-      return (<Text>{""}</Text>);
+      return <Text>{''}</Text>;
     }
   };
 
@@ -61,7 +63,7 @@ class NavigationHeader extends Component {
         <TouchableOpacity
           onPress={() => {
             Segment.cartViewed(this.props.cart);
-            this.props.navigation.navigate("ShoppingBagScreen");
+            this.props.navigation.navigate('ShoppingBagScreen');
           }}
         >
           <ImageBackground
@@ -78,7 +80,15 @@ class NavigationHeader extends Component {
   modalOrNotLeft = () => {
     if (!this.props.modal && !isIphoneX() && this.props.nav.index !== 0) {
       return (
-        <View style={{ flex: 0.2, marginTop: 45, marginRight: 1, flexDirection: "row", justifyContent: "center" }} >
+        <View
+          style={{
+            flex: 0.2,
+            marginTop: 45,
+            marginRight: 1,
+            flexDirection: 'row',
+            justifyContent: 'center'
+          }}
+        >
           <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
             <Image
               style={{ height: 30, width: 30 }}
@@ -99,15 +109,15 @@ class NavigationHeader extends Component {
       <View
         style={{
           height: 90,
-          backgroundColor: "white",
-          flexDirection: "row",
+          backgroundColor: 'white',
+          flexDirection: 'row',
           borderBottomWidth: 1,
-          borderColor: "#43464b"
+          borderColor: '#43464b'
         }}
       >
         {this.modalOrNotLeft()}
         <View style={{ flex: 0.6, marginTop: 55 }}>
-          <Text style={{ fontSize: 20, textAlign: "center" }}>
+          <Text style={{ fontSize: 20, textAlign: 'center' }}>
             {this.props.title}
           </Text>
         </View>
@@ -116,8 +126,8 @@ class NavigationHeader extends Component {
             flex: 0.2,
             marginTop: 45,
             marginLeft: 1,
-            flexDirection: "row",
-            justifyContent: "center"
+            flexDirection: 'row',
+            justifyContent: 'center'
           }}
         >
           {this.modalOrNotRight()}
